@@ -1,4 +1,5 @@
 node_modules
 .parcel-cache
 *.map
-./printer-toner-level-feature.js
+
+/printer-toner-level-feature.js
