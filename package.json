@@ -1,0 +1,22 @@
+{
+  "source": "./src/printer-toner-level-feature.ts",
+  "module": "./dist/printer-toner-level-feature.js",
+  "targets": {
+    "module": {
+      "includeNodeModules": true,
+      "outputFormat": "esmodule"
+    }
+  },
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build --no-optimize"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  },
+  "dependencies": {
+    "custom-card-helpers": "^1.9.0",
+    "home-assistant-js-websocket": "^9.5.0",
+    "lit": "^3.3.1"
+  }
+}

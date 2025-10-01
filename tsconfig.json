@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "target": "es2020",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+  }
+}
