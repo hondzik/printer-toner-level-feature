@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "source": "./src/printer-toner-level-feature.ts",
   "module": "./dist/printer-toner-level-feature.js",
   "targets": {
