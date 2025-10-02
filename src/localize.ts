@@ -1,4 +1,4 @@
-import { IntlMessageFormat } from "intl-messageformat";
+// import { IntlMessageFormat } from "intl-messageformat";
 import type { HomeAssistant } from "custom-card-helpers";
 import * as cs from "./translations/cs.json";
 import * as en from "./translations/en.json";
@@ -31,6 +31,7 @@ export default function setupCustomlocalize(hass?: HomeAssistant) {
     if (!translated) translated = getTranslatedString(key, DEFAULT_LANG);
 
     if (!translated) return key;
+    /*
     try {
       const translatedMessage = new IntlMessageFormat(translated, lang);
       return translatedMessage.format<string>(argObject) as string;
@@ -41,5 +42,7 @@ export default function setupCustomlocalize(hass?: HomeAssistant) {
       );
       return translated;
     }
+    */
+    return translated;
   };
 }

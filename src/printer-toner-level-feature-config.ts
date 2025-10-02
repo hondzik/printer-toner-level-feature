@@ -25,7 +25,7 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
 
 
 	render(): TemplateResult {
-        const customLocalize = setupCustomlocalize(this.hass!);
+        const customLocalize = setupCustomlocalize(this.hass);
 		return html`
             <ha-settings-row>
                 <span slot="heading" data-for="show_percent">${customLocalize("editor.show_percent.label")}</span>
