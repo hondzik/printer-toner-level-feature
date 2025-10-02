@@ -43,7 +43,7 @@ export default function setupCustomlocalize(hass?: HomeAssistant) {
     if (!translated) translated = getTranslatedString(key, DEFAULT_LANG);
 
     if (!translated) return key;
-    /*
+    /* formated messages are not used at the moment
     try {
       const translatedMessage = new IntlMessageFormat(translated, lang);
       return translatedMessage.format<string>(argObject) as string;

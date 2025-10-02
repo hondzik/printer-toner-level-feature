@@ -2,7 +2,6 @@
 
 [![GitHub Release](https://img.shields.io/github/release/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/releases)
 [![License](https://img.shields.io/github/license/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](LICENSE)
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg?style=for-the-badge)](https://github.com/hacs/default)
 [![Project Maintenance](https://img.shields.io/badge/maintainer-hondzik-blue.svg?style=for-the-badge)](https://github.com/hondzik)
 ![Github](https://img.shields.io/github/followers/hondzik.svg?style=for-the-badge)
 [![GitHub Activity](https://img.shields.io/github/last-commit/hondzik/printer-toner-level-feature?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/commits/main)
@@ -61,6 +60,6 @@ features:
     black_as_white: false
 ```
 
-You can also use config dialog do set theese options.
-
-![Config](docs/images/config.png)
+You can use "Edit feature" icon to use settings dialog:
+![Edit feature icon](docs/images/edit-feature-icon.png)
+![Edit feature dialog](docs/images/edit-feature-dialog.png)
