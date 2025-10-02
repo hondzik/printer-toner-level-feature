@@ -1,4 +1,20 @@
 {
+  "author": {
+    "name": "Jakub Kropáč",
+    "email": "honza@kropac.net"
+  },
+  "license": "MIT",
+  "name": "printer-toner-level-feature",
+  "description": "A Home Assistant Lovelace custom card feature to display printer toner levels",
+  "keywords": [
+    "home-assistant",
+    "lovelace",
+    "custom-card",
+    "feature",
+    "printer",
+    "toner",
+    "ink"
+  ],
   "version": "0.0.2",
   "source": "./src/printer-toner-level-feature.ts",
   "module": "./dist/printer-toner-level-feature.js",

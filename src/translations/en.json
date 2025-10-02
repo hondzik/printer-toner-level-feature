@@ -1,0 +1,12 @@
+{
+    "editor": {
+        "show_percent": { 
+            "label": "Show percent value", 
+            "description": "Show percent value next to the progress bar"
+        },
+        "black_as_white": { 
+            "label": "Display black as white", 
+            "description": "Display black toner level as white"
+        }
+    }
+}

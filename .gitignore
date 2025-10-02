@@ -1,7 +1,5 @@
 node_modules
 .parcel-cache
-dist
-/printer-toner-level-feature.js
 .vscode
 .DS_Store
 .idea
@@ -15,3 +13,4 @@ coverage
 *.tmp
 *.old
 *.orig
+*.js.map

@@ -1,0 +1,12 @@
+{
+    "editor": {
+        "show_percent": { 
+            "label": "Zobrazit procenta", 
+            "description": "ZObrazit zbývající procenta vedle indikátoru stavu"
+        },
+        "black_as_white": { 
+            "label": "ZObrazit černou jako bílou", 
+            "description": "Zobrazit úroveň černého toneru bílou barvou"
+        }
+    }
+}

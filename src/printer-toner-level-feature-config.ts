@@ -1,8 +1,11 @@
+import type { HomeAssistant } from "custom-card-helpers";
 import { LitElement, html, css, CSSResultGroup, TemplateResult } from "lit-element";
 import { customElement, property } from "lit/decorators.js";
+import setupCustomlocalize from "./localize";
 
 @customElement("printer-toner-level-feature-config")
 export class PrinterTonerLevelFeatureConfig extends LitElement {
+    @property({ attribute: false }) public hass!: HomeAssistant;
     @property({ type: Object }) config: any = {};
 
     setConfig(config: any) {
@@ -22,14 +25,11 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
 
 
 	render(): TemplateResult {
+        const customLocalize = setupCustomlocalize(this.hass!);
 		return html`
             <ha-settings-row>
-                <span slot="heading" data-for="show_percent">
-                    Show percent remaining
-                </span>
-                <span slot="description" data-for="show_percent">
-                    When enabled, shows the percentage of toner remaining next to the toner level bar.
-                </span>
+                <span slot="heading" data-for="show_percent">${customLocalize("editor.show_percent.label")}</span>
+                <span slot="description" data-for="show_percent">${customLocalize("editor.show_percent.description")}</span>
                 <ha-switch
                     id="show_percent" 
                     @change=${this._onShowPercentChange}
@@ -38,12 +38,8 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
                 ></ha-switch>
             </ha-settings-row>
             <ha-settings-row>
-                <span slot="heading" data-for="black_as_white">
-                    Black toner as white
-                </span>
-                <span slot="description" data-for="black_as_white">
-                    When enabled, displays the black toner level bar in white color.
-                </span>
+                <span slot="heading" data-for="show_percent">${customLocalize("editor.black_as_white.label")}</span>
+                <span slot="description" data-for="show_percent">${customLocalize("editor.black_as_white.description")}</span>
                 <ha-switch
                     id="black_as_white" 
                     @change=${this._onBlackAsWhiteChange}
@@ -55,13 +51,11 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
 	}
 
     private _onShowPercentChange(e: Event) {
-        console.log(e);
         const checked = (e.target as HTMLInputElement).checked;
         this._updateConfig({ ...this.config, show_percent: checked });
     }
 
     private _onBlackAsWhiteChange(e: Event) {
-        console.log(e);
         const checked = (e.target as HTMLInputElement).checked;
         this._updateConfig({ ...this.config, black_as_white: checked });
     }
