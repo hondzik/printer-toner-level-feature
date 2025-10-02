@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Zobraziť percentá",
+      "description": "Ak je povolené, zobrazí percentuálnu hodnotu zostávajúceho tonera vedľa ukazovateľa hladiny."
+    },
+    "black_as_white": {
+      "label": "Zobraziť čierny ako biely",
+      "description": "Ak je povolené, ukazovateľ hladiny čierneho tonera sa zobrazí bielou farbou."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Mostrar valor percentual",
+      "description": "Se ativado, mostra a percentagem de toner restante ao lado da barra de nível."
+    },
+    "black_as_white": {
+      "label": "Exibir preto como branco",
+      "description": "Se ativado, a barra de nível do toner preto é exibida em branco."
+    }
+  }
+}

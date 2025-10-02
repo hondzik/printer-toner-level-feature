@@ -1,12 +1,12 @@
 {
-    "editor": {
-        "show_percent": { 
-            "label": "Zobrazit procenta", 
-            "description": "ZObrazit zbývající procenta vedle indikátoru stavu"
-        },
-        "black_as_white": { 
-            "label": "ZObrazit černou jako bílou", 
-            "description": "Zobrazit úroveň černého toneru bílou barvou"
-        }
+  "editor": {
+    "show_percent": {
+      "label": "Zobrazit procenta",
+      "description": "Pokud je povoleno, zobrazí procentuální hodnotu zbývajícího toneru vedle ukazatele hladiny."
+    },
+    "black_as_white": {
+      "label": "Zobrazit černý jako bílý",
+      "description": "Pokud je povoleno, ukazatel hladiny černého toneru se zobrazí bílou barvou."
     }
+  }
 }

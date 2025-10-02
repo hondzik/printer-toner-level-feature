@@ -2,11 +2,11 @@
     "editor": {
         "show_percent": { 
             "label": "Show percent value", 
-            "description": "Show percent value next to the progress bar"
+            "description": "When enabled, shows the percentage of toner remaining next to the toner level bar."
         },
         "black_as_white": { 
             "label": "Display black as white", 
-            "description": "Display black toner level as white"
+            "description": "When enabled, displays the black toner level bar in white color."
         }
     }
 }

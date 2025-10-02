@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Mostrar valor porcentual",
+      "description": "Si está habilitado, muestra el porcentaje de tóner restante junto a la barra de nivel."
+    },
+    "black_as_white": {
+      "label": "Mostrar negro como blanco",
+      "description": "Si está habilitado, la barra de nivel del tóner negro se muestra en blanco."
+    }
+  }
+}

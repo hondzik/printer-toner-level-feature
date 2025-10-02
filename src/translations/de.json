@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Prozentwert anzeigen",
+      "description": "Wenn aktiviert, wird der Prozentsatz des verbleibenden Toners neben der Füllstandsanzeige angezeigt."
+    },
+    "black_as_white": {
+      "label": "Schwarz als Weiß anzeigen",
+      "description": "Wenn aktiviert, wird die Füllstandsanzeige für schwarzen Toner in Weiß dargestellt."
+    }
+  }
+}
