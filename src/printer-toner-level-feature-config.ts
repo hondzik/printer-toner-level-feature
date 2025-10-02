@@ -5,7 +5,7 @@ import setupCustomlocalize from "./localize";
 
 @customElement("printer-toner-level-feature-config")
 export class PrinterTonerLevelFeatureConfig extends LitElement {
-    @property({ attribute: false }) public hass!: HomeAssistant;
+    @property({ attribute: false }) hass?: HomeAssistant;
     @property({ type: Object }) config: any = {};
 
     setConfig(config: any) {
