@@ -1345,99 +1345,99 @@ function $ed34c589b230c255$export$dcd0d083aa86c355(r) {
 
 
 const $3b5ddbac5a56879d$export$80c40bf24173ffb7 = (0, $def2de46b9306e8a$export$dbf350e5966cf602)`
-      .toners {
-        display: flex;
-        flex-direction: column;
-        height: var(--feature-height, 42px);
-        overflow: none;
-      }
+  .toners {
+    display: flex;
+    flex-direction: column;
+    height: var(--feature-height, 42px);
+    overflow: none;
+  }
 
-      .color.toners {
-        /* double feature height + flex gap */
-        height: calc(2 * var(--feature-height, 42px) + 12px);
-      }
+  .color.toners {
+    /* double feature height + flex gap */
+    height: calc(2 * var(--feature-height, 42px) + 12px);
+  }
 
-      .toner {
-        display: flex;
-        flex: 1;
-        align-items: center;
-      }
+  .toner {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
 
-      .toner > :first-child {
-        flex: 1;
-      }
+  .toner > :first-child {
+    flex: 1;
+  }
 
-      .toner > :last-child {
-        width: 45px;
-        text-align: right;
-      }
+  .toner > :last-child {
+    width: 45px;
+    text-align: right;
+  }
 
-      .toner .background {
-        border: 1px solid;
-        border-radius: 5px;
-        height: 8px;
-      }
+  .toner .background {
+    border: 1px solid;
+    border-radius: 5px;
+    height: 8px;
+  }
 
-      .toner .level {
-        height: 100%;
-      }
+  .toner .level {
+    height: 100%;
+  }
 
-      .toner .percent {
-        font-size: var(--ha-font-size-s);
-        font-weight: var(--ha-font-weight-normal);
-        letter-spacing: 0.4px;
-        color: var(--primary-text-color);
-      }
+  .toner .percent {
+    font-size: var(--ha-font-size-s);
+    font-weight: var(--ha-font-weight-normal);
+    letter-spacing: 0.4px;
+    color: var(--primary-text-color);
+  }
 
-      .toner .percent::after {
-        content: "%";
-        margin-left: 2px;
-      }
+  .toner .percent::after {
+    content: "%";
+    margin-left: 2px;
+  }
 
-      .cyan.toner .background {
-        background-color: rgba(0, 255, 255, 0.3);
-        border-color: rgba(0, 255, 255, 0.8);
-      }
+  .cyan.toner .background {
+    background-color: rgba(0, 255, 255, 0.3);
+    border-color: rgba(0, 255, 255, 0.8);
+  }
 
-      .cyan.toner .level {
-        background-color: rgba(0, 255, 255, 0.7);
-      }
+  .cyan.toner .level {
+    background-color: rgba(0, 255, 255, 0.7);
+  }
 
-      .magenta.toner .background {
-        background-color: rgba(255, 0, 255, 0.3);
-        border-color: rgba(255, 0, 255, 0.8);
-      }
+  .magenta.toner .background {
+    background-color: rgba(255, 0, 255, 0.3);
+    border-color: rgba(255, 0, 255, 0.8);
+  }
 
-      .magenta.toner .level {
-        background-color: rgb(255, 0, 255, 0.7);
-      }
+  .magenta.toner .level {
+    background-color: rgb(255, 0, 255, 0.7);
+  }
 
-      .yellow.toner .background {
-        background-color: rgba(255, 255, 0, 0.3);
-        border-color: rgba(255, 255, 0, 0.8);
-      }
+  .yellow.toner .background {
+    background-color: rgba(255, 255, 0, 0.3);
+    border-color: rgba(255, 255, 0, 0.8);
+  }
 
-      .yellow.toner .level {
-        background-color: rgba(255, 255, 0, 0.7);
-      }
+  .yellow.toner .level {
+    background-color: rgba(255, 255, 0, 0.7);
+  }
 
-      .black.toner .background {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-color: rgba(0, 0, 0, 0.8);
-      }
+  .black.toner .background {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.8);
+  }
 
-      .black-as-white .black.toner .background {
-        background-color: rgba(255, 255, 255, 0.3);
-        border-color: rgba(255, 255, 255, 0.8);
-      }
+  .black-as-white .black.toner .background {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
 
-      .black.toner .level {
-        background-color: rgba(0, 0, 0, 0.7);
-      }
-        
-      .black-as-white .black.toner .level {
-        background-color: rgba(255, 255, 255, 0.7);
-      }
+  .black.toner .level {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+    
+  .black-as-white .black.toner .level {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 `;
 
 
@@ -1456,23 +1456,47 @@ class $ab1e9a80a63d61c0$export$c1848697bed418fe extends (0, $ab210b2da7b39b9d$ex
     }
     static get styles() {
         return (0, $def2de46b9306e8a$export$dbf350e5966cf602)`
-			.option {margin-bottom: 12px;}
-			label {font-size: 1em; margin-left: 0.5em;}
-		`;
+            .option {margin-bottom: 12px;}
+            label {font-size: 1em; margin-left: 0.5em;}
+        `;
+    }
+    getBoolConfigVal(key, defaultValue) {
+        return this.config && this.config[key] !== undefined ? !!this.config[key] : defaultValue;
     }
     render() {
         return (0, $f58f44579a4747ac$export$c0bb0b647f701bb5)`
-			<div class="option">
-				<input type="checkbox" id="show_percent" .checked=${!!this.config.show_percent} @change=${this._onShowPercentChange} />
-				<label for="show_percent">Show percent remaining</label>
-			</div>
-			<div class="option">
-				<input type="checkbox" id="black_as_white" .checked=${!!this.config.black_as_white} @change=${this._onBlackAsWhiteChange} />
-				<label for="black_as_white">Black toner as white</label>
-			</div>
+            <ha-settings-row>
+                <span slot="heading" data-for="show_percent">
+                    Show percent remaining
+                </span>
+                <span slot="description" data-for="show_percent">
+                    When enabled, shows the percentage of toner remaining next to the toner level bar.
+                </span>
+                <ha-switch
+                    id="show_percent" 
+                    @change=${this._onShowPercentChange}
+                    .checked=${this.getBoolConfigVal("show_percent", true)} 
+                    name="show_percent"
+                />
+            </ha-settings-row>
+            <ha-settings-row>
+                <span slot="heading" data-for="black_as_white">
+                    Black toner as white
+                </span>
+                <span slot="description" data-for="black_as_white">
+                    When enabled, displays the black toner level bar in white color.
+                </span>
+                <ha-switch
+                    id="black_as_white" 
+                    @change=${this._onBlackAsWhiteChange}
+                    .checked=${this.getBoolConfigVal("black_as_white", true)} 
+                    name="black_as_white"
+                />
+            </ha-settings-row>
 		`;
     }
     _onShowPercentChange(e) {
+        console.log(e);
         const checked = e.target.checked;
         this._updateConfig({
             ...this.config,
@@ -1480,6 +1504,7 @@ class $ab1e9a80a63d61c0$export$c1848697bed418fe extends (0, $ab210b2da7b39b9d$ex
         });
     }
     _onBlackAsWhiteChange(e) {
+        console.log(e);
         const checked = e.target.checked;
         this._updateConfig({
             ...this.config,
@@ -1511,9 +1536,7 @@ $ab1e9a80a63d61c0$export$c1848697bed418fe = (0, $24c52f343453d62d$export$29e00df
 
 
 const $80165e74d4d272a0$var$supportsPrinterTonerLevelFeature = (stateObj)=>{
-    const domain = stateObj.entity_id.split(".")[0];
-    if (domain !== "sensor") return false;
-    return stateObj.attributes?.domain === "printer";
+    return stateObj.attributes?.domain === "printer" && typeof stateObj.attributes?.black_level === "number";
 };
 class $80165e74d4d272a0$var$PrinterTonerLevelFeature extends (0, $ab210b2da7b39b9d$export$3f2f9f5909897157) {
     static get properties() {
@@ -1529,9 +1552,25 @@ class $80165e74d4d272a0$var$PrinterTonerLevelFeature extends (0, $ab210b2da7b39b
             }
         };
     }
+    static getConfigElement() {
+        return document.createElement('printer-toner-level-feature-config');
+    }
+    static getStubConfig() {
+        return {
+            type: 'printer-toner-level-feature'
+        };
+    }
+    get isColorPrinter() {
+        return this.stateObj?.attributes?.cyan_level != null;
+    }
+    getCardSize() {
+        return this.isColorPrinter ? 3 : 2;
+    }
     setConfig(config) {
+        console.log(config);
         this.config = config;
         if (config && config.entity) this.stateObj = this.hass?.states?.[config.entity];
+        else this.stateObj = undefined;
     }
     getBoolConfigVal(key, defaultValue) {
         return this.config && this.config[key] !== undefined ? !!this.config[key] : defaultValue;
@@ -1550,23 +1589,24 @@ class $80165e74d4d272a0$var$PrinterTonerLevelFeature extends (0, $ab210b2da7b39b
         </div>
       `;
         const attributes = this.stateObj.attributes;
-        const showPercent = this.getBoolConfigVal("show_percent", true);
         const blackAsWhite = this.getBoolConfigVal("black_as_white", true);
-        if (attributes?.cyan_level != null) return (0, $f58f44579a4747ac$export$c0bb0b647f701bb5)`
-        <div class="color toners ${blackAsWhite ? 'black-as-white' : ''}">
-          ${$80165e74d4d272a0$var$PrinterTonerLevelFeature.renderToner("cyan", attributes?.cyan_level, showPercent)}
-          ${$80165e74d4d272a0$var$PrinterTonerLevelFeature.renderToner("magenta", attributes?.magenta_level, showPercent)}
-          ${$80165e74d4d272a0$var$PrinterTonerLevelFeature.renderToner("yellow", attributes?.yellow_level, showPercent)}
-          ${$80165e74d4d272a0$var$PrinterTonerLevelFeature.renderToner("black", attributes?.black_level, showPercent)}
+        if (this.isColorPrinter) return (0, $f58f44579a4747ac$export$c0bb0b647f701bb5)`
+        <div class="color toners${blackAsWhite ? ' black-as-white' : ''}">
+          ${this.renderToner("cyan")}
+          ${this.renderToner("magenta")}
+          ${this.renderToner("yellow")}
+          ${this.renderToner("black")}
         </div>
       `;
         else return (0, $f58f44579a4747ac$export$c0bb0b647f701bb5)`
-        <div class="toners ${blackAsWhite ? 'black-as-white' : ''}">
-          ${$80165e74d4d272a0$var$PrinterTonerLevelFeature.renderToner("black", attributes?.black_level, showPercent)}
+        <div class="toners${blackAsWhite ? ' black-as-white' : ''}">
+          ${this.renderToner("black")}
         </div>
       `;
     }
-    static renderToner(color, level, showPercent) {
+    renderToner(color) {
+        const level = this.stateObj.attributes[color + "_level"];
+        const showPercent = this.getBoolConfigVal("show_percent", true);
         return (0, $f58f44579a4747ac$export$c0bb0b647f701bb5)`
       <div class="${color} toner">
         <div class="background">
@@ -1596,13 +1636,12 @@ class $80165e74d4d272a0$var$PrinterTonerLevelFeature extends (0, $ab210b2da7b39b
 $80165e74d4d272a0$var$PrinterTonerLevelFeature = (0, $24c52f343453d62d$export$29e00dfd3077644b)([
     (0, $14742f68afc766d6$export$da64fc29f17f9d0e)("printer-toner-level-feature")
 ], $80165e74d4d272a0$var$PrinterTonerLevelFeature);
-window.customCardFeatures = window.customCardFeatures || [];
+window.customCardFeatures ||= [];
 window.customCardFeatures.push({
     type: "printer-toner-level-feature",
     name: "Printer toner level",
     supported: $80165e74d4d272a0$var$supportsPrinterTonerLevelFeature,
-    configurable: true,
-    getConfigElement: ()=>document.createElement("printer-toner-level-feature-config")
+    configurable: true
 });
 
 

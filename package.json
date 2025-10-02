@@ -9,7 +9,10 @@
   },
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build --no-optimize"
+    "build": "parcel build",
+    "version MAJOR": "npm version major",
+    "version MINOR": "npm version minor",
+    "version PATCH": "npm version patch"
   },
   "devDependencies": {
     "parcel": "^2.16.0"

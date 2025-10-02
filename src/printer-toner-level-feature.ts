@@ -1,4 +1,4 @@
-import { LitElement, html, css, TemplateResult, CSSResultGroup, nothing } from "lit";
+import { LitElement, html, TemplateResult, CSSResultGroup, nothing } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import type { HomeAssistant } from "custom-card-helpers";
 import type { HassEntity } from "home-assistant-js-websocket";
@@ -6,13 +6,8 @@ import { printerTonerLevelFeatureStyles } from "./printer-toner-level-feature.st
 import "./printer-toner-level-feature-config";
 
 const supportsPrinterTonerLevelFeature = (stateObj: HassEntity): boolean => {
-  const domain = stateObj.entity_id.split(".")[0];
-  if (domain !== "sensor") {
-    return false;
-  }
-  return stateObj.attributes?.domain === "printer";
+  return stateObj.attributes?.domain === "printer" && typeof stateObj.attributes?.black_level === "number";
 };
-
 
 @customElement("printer-toner-level-feature")
 class PrinterTonerLevelFeature extends LitElement {
@@ -20,7 +15,7 @@ class PrinterTonerLevelFeature extends LitElement {
   @property({ attribute: false }) config?: any;
   @property({ attribute: false }) stateObj?: HassEntity;
 
-  static get properties() {
+  static get properties(): { [key: string]: any } {
     return {
       hass: { type: Object },
       config: { type: Object },
@@ -28,10 +23,30 @@ class PrinterTonerLevelFeature extends LitElement {
     };
   }
 
-  setConfig(config: any) {
+	static getConfigElement(): HTMLElement {
+		return document.createElement('printer-toner-level-feature-config');
+	}
+
+	static getStubConfig(): any {
+		return {
+			type: 'printer-toner-level-feature',
+			// features: [],
+		};
+	}
+
+  get isColorPrinter(): boolean { return this.stateObj?.attributes?.cyan_level != null }
+
+	getCardSize(): number {
+		return this.isColorPrinter ? 3 : 2;
+	}  
+
+  setConfig(config: PrinterTonerLevelFeatureConfig) {
+    console.log(config)
     this.config = config;
     if (config && config.entity) {
       this.stateObj = this.hass?.states?.[config.entity];
+    } else {
+      this.stateObj = undefined;
     }
   }
 
@@ -61,28 +76,29 @@ class PrinterTonerLevelFeature extends LitElement {
     }
 
     const attributes = this.stateObj.attributes;
-    const showPercent = this.getBoolConfigVal("show_percent", true);
     const blackAsWhite = this.getBoolConfigVal("black_as_white", true);
     
-    if (attributes?.cyan_level != null) {
+    if (this.isColorPrinter) {
       return html`
-        <div class="color toners ${blackAsWhite ? 'black-as-white' : ''}">
-          ${PrinterTonerLevelFeature.renderToner("cyan", attributes?.cyan_level, showPercent)}
-          ${PrinterTonerLevelFeature.renderToner("magenta", attributes?.magenta_level, showPercent)}
-          ${PrinterTonerLevelFeature.renderToner("yellow", attributes?.yellow_level, showPercent)}
-          ${PrinterTonerLevelFeature.renderToner("black", attributes?.black_level, showPercent)}
+        <div class="color toners${blackAsWhite ? ' black-as-white' : ''}">
+          ${this.renderToner("cyan")}
+          ${this.renderToner("magenta")}
+          ${this.renderToner("yellow")}
+          ${this.renderToner("black")}
         </div>
       `;
     } else {
       return html`
-        <div class="toners ${blackAsWhite ? 'black-as-white' : ''}">
-          ${PrinterTonerLevelFeature.renderToner("black", attributes?.black_level, showPercent)}
+        <div class="toners${blackAsWhite ? ' black-as-white' : ''}">
+          ${this.renderToner("black")}
         </div>
       `;
     }
   }
 
-  static renderToner(color: string, level: number, showPercent: boolean) {
+  renderToner(color: string): TemplateResult {
+    const level = this.stateObj.attributes[color + "_level"];
+    const showPercent = this.getBoolConfigVal("show_percent", true);
     return html`
       <div class="${color} toner">
         <div class="background">
@@ -98,11 +114,10 @@ class PrinterTonerLevelFeature extends LitElement {
   }
 }
 
-(window as any).customCardFeatures = (window as any).customCardFeatures || [];
-(window as any).customCardFeatures.push({
+window.customCardFeatures ||= [];
+window.customCardFeatures.push({
   type: "printer-toner-level-feature",
   name: "Printer toner level",
   supported: supportsPrinterTonerLevelFeature,
   configurable: true,
-  getConfigElement: () => document.createElement("printer-toner-level-feature-config")
 });

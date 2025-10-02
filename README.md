@@ -1,4 +1,13 @@
-# printer-toner-level-feature
+# Printer toner level feature for Home Assistant Tile card
+
+[![GitHub Release](https://img.shields.io/github/release/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/releases)
+[![License](https://img.shields.io/github/license/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](LICENSE)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg?style=for-the-badge)](https://github.com/hacs/default)
+[![Project Maintenance](https://img.shields.io/badge/maintainer-hondzik-blue.svg?style=for-the-badge)](https://github.com/hondzik)
+![Github](https://img.shields.io/github/followers/hondzik.svg?style=for-the-badge)
+[![GitHub Activity](https://img.shields.io/github/last-commit/hondzik/printer-toner-level-feature?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/commits/main)
+
+[![My Home Assistant](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=printer-toner-level-feature&owner=hondzik&category=Plugin)
 
 This 'card feature' is used to display the current toner levels of printers.
 
@@ -22,8 +31,8 @@ The way you fill in the individual attributes may vary depending on the integrat
 Next, you need to create a Tile card and select the created template sensor as the entity. In the Feature selection, you should be able to choose _Printer toner level_ (the option will appear based on the attribute domain: "printer").
 
 For black-and-white printers, just set the grid_options.rows to 2; for color printers, you need to set the grid_options.rows to 3.
-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
-Configuration for a color printer looks like this:
+
+Configuration for a color printer may look like this:
 
 ```yaml
 type: tile
@@ -48,6 +57,3 @@ features:
     show_percent: false
     black_as_white: false
 ```
-
-In the future, I plan to allow editing configuration variables via the UI, but at the moment this is not possible.
-
