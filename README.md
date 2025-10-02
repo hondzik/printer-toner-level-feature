@@ -11,6 +11,9 @@
 
 This 'card feature' is used to display the current toner levels of printers.
 
+![Color](docs/images/color.png)
+![Black & White](docs/images/black-and-white.png)
+
 Before using it, you first need to define your own template sensor, which stores the level of each toner in its attributes:
 
 ```yaml
@@ -57,3 +60,7 @@ features:
     show_percent: false
     black_as_white: false
 ```
+
+You can also use config dialog do set theese options.
+
+![Config](docs/images/config.png)
