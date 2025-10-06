@@ -23,21 +23,21 @@ class PrinterTonerLevelFeature extends LitElement {
     };
   }
 
-	static getConfigElement(): HTMLElement {
-		return document.createElement('printer-toner-level-feature-config');
-	}
+  static getConfigElement(): HTMLElement {
+    return document.createElement('printer-toner-level-feature-config');
+  }
 
-	static getStubConfig(): any {
-		return {
-			type: 'printer-toner-level-feature'
-		};
-	}
+  static getStubConfig(): any {
+    return {
+      type: 'printer-toner-level-feature'
+    };
+  }
 
   get isColorPrinter(): boolean { return this.stateObj?.attributes?.cyan_level != null }
 
-	getCardSize(): number {
-		return this.isColorPrinter ? 3 : 2;
-	}  
+  getCardSize(): number {
+    return this.isColorPrinter ? 3 : 2;
+  }  
 
   setConfig(config: PrinterTonerLevelFeatureConfig) {
     console.log(config)
