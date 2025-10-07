@@ -23,10 +23,9 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
         return this.config && this.config[key] !== undefined ? !!this.config[key] : defaultValue;
     }
 
-
-	render(): TemplateResult {
+    render(): TemplateResult {
         const customLocalize = setupCustomlocalize(this.hass);
-		return html`
+        return html`
             <ha-settings-row>
                 <span slot="heading" data-for="show_percent">${customLocalize("editor.show_percent.label")}</span>
                 <span slot="description" data-for="show_percent">${customLocalize("editor.show_percent.description")}</span>
@@ -47,8 +46,8 @@ export class PrinterTonerLevelFeatureConfig extends LitElement {
                     name="black_as_white"
                 ></ha-switch>
             </ha-settings-row>
-		`;
-	}
+        `;
+    }
 
     private _onShowPercentChange(e: Event) {
         const checked = (e.target as HTMLInputElement).checked;

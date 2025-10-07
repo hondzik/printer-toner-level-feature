@@ -40,7 +40,6 @@ class PrinterTonerLevelFeature extends LitElement {
   }  
 
   setConfig(config: PrinterTonerLevelFeatureConfig) {
-    console.log(config)
     this.config = config;
     if (config && config.entity) {
       this.stateObj = this.hass?.states?.[config.entity];

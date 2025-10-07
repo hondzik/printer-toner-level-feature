@@ -6,5 +6,6 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "resolveJsonModule": true,
+    "sourceMap": false
   }
 }
