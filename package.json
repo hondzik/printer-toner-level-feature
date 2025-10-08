@@ -26,7 +26,7 @@
   },
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "parcel build --no-source-maps",
     "version MAJOR": "npm version major",
     "version MINOR": "npm version minor",
     "version PATCH": "npm version patch"

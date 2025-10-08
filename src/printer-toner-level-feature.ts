@@ -29,7 +29,7 @@ class PrinterTonerLevelFeature extends LitElement {
 
   static getStubConfig(): any {
     return {
-      type: 'printer-toner-level-feature'
+      type: 'custom:printer-toner-level-feature'
     };
   }
 
