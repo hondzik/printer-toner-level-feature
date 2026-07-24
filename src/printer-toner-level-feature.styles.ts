@@ -65,7 +65,7 @@ export const printerTonerLevelFeatureStyles = css`
   }
 
   .magenta.toner .level {
-    background-color: rgb(255, 0, 255, 0.7);
+    background-color: rgba(255, 0, 255, 0.7);
   }
 
   .yellow.toner .background {

@@ -23,12 +23,8 @@ const languages: Record<string, unknown> = {
 const DEFAULT_LANG = 'en';
 
 function getTranslatedString(key: string, lang: string): string | undefined {
-  try {
-    return key.split('.').reduce((o, i) => (o as Record<string, unknown>)[i], languages[lang]) as string;
-  } catch (_) {
-    console.error('getTranslatedString exception: ', _);
-    return undefined;
-  }
+  const result = key.split('.').reduce<unknown>((o, i) => (o && typeof o === 'object' ? (o as Record<string, unknown>)[i] : undefined), languages[lang]);
+  return typeof result === 'string' ? result : undefined;
 }
 
 export default function setupCustomlocalize(hass?: HomeAssistant) {

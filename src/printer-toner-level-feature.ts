@@ -1,5 +1,6 @@
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { getBoolConfigVal } from './config-utils';
 import { printerTonerLevelFeatureStyles } from './printer-toner-level-feature.styles';
 import type { HomeAssistant } from 'custom-card-helpers';
 import type { HassEntity } from 'home-assistant-js-websocket';
@@ -14,14 +15,14 @@ const supportsPrinterTonerLevelFeature = (hass: HomeAssistant, context: Lovelace
 @customElement('printer-toner-level-feature')
 export class PrinterTonerLevelFeature extends LitElement {
   @property({ attribute: false }) hass?: HomeAssistant;
-  @property({ attribute: false }) config?: any;
+  @property({ attribute: false }) config?: PrinterTonerLevelFeatureConfig;
   @property({ attribute: false }) context?: LovelaceCardFeatureContext;
 
   static getConfigElement(): HTMLElement {
     return document.createElement('printer-toner-level-feature-config');
   }
 
-  static getStubConfig(): any {
+  static getStubConfig(): PrinterTonerLevelFeatureConfig {
     return {
       type: 'custom:printer-toner-level-feature',
     };
@@ -43,10 +44,6 @@ export class PrinterTonerLevelFeature extends LitElement {
     this.config = config;
   }
 
-  getBoolConfigVal(key: string, defaultValue: boolean): boolean {
-    return this.config && this.config[key] !== undefined ? !!this.config[key] : defaultValue;
-  }
-
   render(): TemplateResult {
     if (!this.config || !this.hass || !this.context || !supportsPrinterTonerLevelFeature(this.hass, this.context)) {
       return html`
@@ -56,7 +53,7 @@ export class PrinterTonerLevelFeature extends LitElement {
       `;
     }
 
-    const blackAsWhite = this.getBoolConfigVal('black_as_white', true);
+    const blackAsWhite = getBoolConfigVal(this.config, 'black_as_white', true);
     if (this.isColorPrinter) {
       return html`
         <div class="color toners${blackAsWhite ? ' black-as-white' : ''}">
@@ -70,7 +67,7 @@ export class PrinterTonerLevelFeature extends LitElement {
 
   renderToner(color: string): TemplateResult {
     const level = this.stateObj?.attributes[color + '_level'] ?? 0;
-    const showPercent = this.getBoolConfigVal('show_percent', true);
+    const showPercent = getBoolConfigVal(this.config, 'show_percent', true);
     return html`
       <div class="${color} toner">
         <div class="background">
