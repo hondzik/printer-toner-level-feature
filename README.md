@@ -60,7 +60,10 @@ features:
     black_as_white: false
 ```
 
-You can use "Edit feature" icon to use settings dialog:
+You can use "Edit feature" icon to use show dialog:
 
 ![Edit feature icon](docs/images/edit-feature-icon.png)
+
+Click on the pencil icon to show Tile card configuration dialog:
+
 ![Edit feature dialog](docs/images/edit-feature-dialog.png)
