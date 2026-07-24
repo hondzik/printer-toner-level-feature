@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "isolatedModules": true,
-    "target": "es2020",
-    "moduleResolution": "node",
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "resolveJsonModule": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "strict": true,
   }
 }

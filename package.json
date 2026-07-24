@@ -5,7 +5,12 @@
   },
   "license": "MIT",
   "name": "printer-toner-level-feature",
+  "displayName": "Printer toner Tile card feature",
   "description": "A Home Assistant Lovelace custom card feature to display printer toner levels",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hondzik/printer-toner-level-feature"
+  },
   "keywords": [
     "home-assistant",
     "lovelace",
@@ -15,28 +20,37 @@
     "toner",
     "ink"
   ],
+  "type": "module",
   "version": "0.0.11",
-  "source": "./src/printer-toner-level-feature.ts",
   "module": "./dist/printer-toner-level-feature.js",
-  "targets": {
-    "module": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule"
-    }
-  },
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build --no-source-maps",
+    "watch": "rollup -c -w",
+    "build": "rollup -c",
+    "copy to HAOS": "node scripts/copy-to-haos.js",
+    "lint & format": "eslint src --ext .ts,.js --fix && prettier --write src/**/*.{ts,js,json,css,scss,html}",
     "version MAJOR": "npm version major",
     "version MINOR": "npm version minor",
     "version PATCH": "npm version patch"
   },
   "devDependencies": {
-    "parcel": "^2.16.0"
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
+    "eslint": "^10.7.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "prettier": "^3.9.6",
+    "rollup": "^4.62.2",
+    "rollup-plugin-summary": "^3.0.1",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "custom-card-helpers": "^1.9.0",
-    "home-assistant-js-websocket": "^9.5.0",
-    "lit": "^3.3.1"
+    "custom-card-helpers": "^2.0.0",
+    "home-assistant-js-websocket": "^9.6.0",
+    "lit": "^3.3.3"
   }
 }

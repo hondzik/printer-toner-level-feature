@@ -61,5 +61,6 @@ features:
 ```
 
 You can use "Edit feature" icon to use settings dialog:
+
 ![Edit feature icon](docs/images/edit-feature-icon.png)
 ![Edit feature dialog](docs/images/edit-feature-dialog.png)

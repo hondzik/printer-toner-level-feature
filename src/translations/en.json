@@ -1,12 +1,12 @@
 {
-    "editor": {
-        "show_percent": { 
-            "label": "Show percent value", 
-            "description": "When enabled, shows the percentage of toner remaining next to the toner level bar."
-        },
-        "black_as_white": { 
-            "label": "Display black as white", 
-            "description": "When enabled, displays the black toner level bar in white color."
-        }
+  "editor": {
+    "show_percent": {
+      "label": "Show percent value",
+      "description": "When enabled, shows the percentage of toner remaining next to the toner level bar."
+    },
+    "black_as_white": {
+      "label": "Display black as white",
+      "description": "When enabled, displays the black toner level bar in white color."
     }
+  }
 }

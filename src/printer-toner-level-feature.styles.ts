@@ -1,4 +1,5 @@
-import { css } from "lit";
+import { css } from 'lit';
+
 export const printerTonerLevelFeatureStyles = css`
   .toners {
     display: flex;
@@ -45,7 +46,7 @@ export const printerTonerLevelFeatureStyles = css`
   }
 
   .toner .percent::after {
-    content: "%";
+    content: '%';
     margin-left: 2px;
   }
 
@@ -89,7 +90,7 @@ export const printerTonerLevelFeatureStyles = css`
   .black.toner .level {
     background-color: rgba(0, 0, 0, 0.7);
   }
-    
+
   .black-as-white .black.toner .level {
     background-color: rgba(255, 255, 255, 0.7);
   }

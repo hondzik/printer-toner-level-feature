@@ -1,4 +1,4 @@
-import type { HassEntity } from "home-assistant-js-websocket";
+import type { HomeAssistant } from 'custom-card-helpers';
 
 export {};
 
@@ -8,11 +8,16 @@ declare global {
     customCards: CustomCard[];
   }
 
+  interface LovelaceCardFeatureContext {
+    entity_id?: string;
+    area_id?: string;
+  }
+
   interface CustomCardFeature {
     type: string;
     name: string;
     configurable?: boolean;
-    supported?: (stateObj: HassEntity) => boolean;
+    isSupported?: (hass: HomeAssistant, context: LovelaceCardFeatureContext) => boolean;
   }
 
   interface CustomCard {
@@ -23,11 +28,10 @@ declare global {
 
   type FeatureConfig = {
     type: string;
-    entity?: string;
   };
 
   type PrinterTonerLevelFeatureConfig = FeatureConfig & {
     show_percent?: boolean;
     black_as_white?: boolean;
-  };  
+  };
 }
