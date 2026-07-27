@@ -32,6 +32,15 @@ export class PrinterTonerLevelFeature extends LitElement {
     return this.context?.entity_id ? this.hass?.states[this.context.entity_id] : undefined;
   }
 
+  // hui-card-feature.ts assigns `element.stateObj = ...` directly on every render
+  // for legacy custom-card-feature compatibility. Without this setter, that
+  // assignment throws (assigning to a getter-only accessor from strict-mode
+  // code) and aborts the render, leaving the feature blank. State is derived
+  // from context/hass above, so the assigned value is intentionally ignored.
+  set stateObj(_stateObj: HassEntity | undefined) {
+    void _stateObj;
+  }
+
   get isColorPrinter(): boolean {
     return this.stateObj?.attributes?.cyan_level != null;
   }
