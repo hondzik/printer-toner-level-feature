@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Pokaż wartość procentową",
+      "description": "Gdy włączone, wyświetla procentową wartość pozostałego tonera obok paska poziomu."
+    },
+    "black_as_white": {
+      "label": "Wyświetlaj czarny jako biały",
+      "description": "Gdy włączone, pasek poziomu czarnego tonera jest wyświetlany w kolorze białym."
+    }
+  }
+}

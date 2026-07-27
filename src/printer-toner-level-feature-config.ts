@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { getBoolConfigVal } from './config-utils';
 import setupCustomlocalize from './localize';
+import { getBoolConfigVal } from './utils/config-utils';
 import type { HomeAssistant } from 'custom-card-helpers';
 import type { CSSResultGroup, TemplateResult } from 'lit';
 

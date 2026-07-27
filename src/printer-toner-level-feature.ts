@@ -1,11 +1,14 @@
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { getBoolConfigVal } from './config-utils';
 import { printerTonerLevelFeatureStyles } from './printer-toner-level-feature.styles';
+import { getBoolConfigVal } from './utils/config-utils';
+import { infoBlock } from './utils/info-block';
 import type { HomeAssistant } from 'custom-card-helpers';
 import type { HassEntity } from 'home-assistant-js-websocket';
 import type { TemplateResult, CSSResultGroup } from 'lit';
 import './printer-toner-level-feature-config';
+
+infoBlock();
 
 const supportsPrinterTonerLevelFeature = (hass: HomeAssistant, context: LovelaceCardFeatureContext): boolean => {
   const stateObj = context.entity_id ? hass.states[context.entity_id] : undefined;

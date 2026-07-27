@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Visa procentvärde",
+      "description": "När aktiverat visas den återstående tonerns procentandel bredvid nivåindikatorn."
+    },
+    "black_as_white": {
+      "label": "Visa svart som vitt",
+      "description": "När aktiverat visas den svarta tonernivåindikatorn i vit färg."
+    }
+  }
+}

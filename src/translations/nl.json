@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Percentage weergeven",
+      "description": "Indien ingeschakeld, wordt het resterende tonerpercentage naast de niveaubalk weergegeven."
+    },
+    "black_as_white": {
+      "label": "Zwart als wit weergeven",
+      "description": "Indien ingeschakeld, wordt de zwarte tonerniveaubalk in witte kleur weergegeven."
+    }
+  }
+}

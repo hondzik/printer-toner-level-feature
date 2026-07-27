@@ -1,0 +1,12 @@
+{
+  "editor": {
+    "show_percent": {
+      "label": "Százalék megjelenítése",
+      "description": "Ha engedélyezve van, a fennmaradó festék százalékos értéke megjelenik a szintjelző sáv mellett."
+    },
+    "black_as_white": {
+      "label": "Fekete megjelenítése fehérként",
+      "description": "Ha engedélyezve van, a fekete festékszint sáv fehér színben jelenik meg."
+    }
+  }
+}
