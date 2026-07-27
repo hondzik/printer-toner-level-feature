@@ -21,7 +21,7 @@
     "ink"
   ],
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "module": "./dist/printer-toner-level-feature.js",
   "scripts": {
     "watch": "rollup -c -w",
