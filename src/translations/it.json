@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Mostra nero come bianco",
       "description": "Se abilitato, la barra del livello del toner nero viene mostrata in bianco."
+    },
+    "sources": {
+      "title": "Sorgenti del toner",
+      "mode_attributes": "I valori provengono dagli attributi dell'entità della scheda",
+      "mode_auto": "Sensori delle cartucce rilevati automaticamente dal dispositivo stampante",
+      "mode_none": "Nessun sensore cartuccia rilevato — assegnali manualmente",
+      "auto": "Auto",
+      "manual": "Manuale",
+      "reset": "Ripristina il sensore rilevato",
+      "sensor": "Sensore"
+    },
+    "colors": {
+      "cyan": "Ciano",
+      "magenta": "Magenta",
+      "yellow": "Giallo",
+      "black": "Nero"
     }
+  },
+  "feature": {
+    "last_known": "Ultimo valore noto"
   }
 }

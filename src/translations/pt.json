@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Exibir preto como branco",
       "description": "Se ativado, a barra de nível do toner preto é exibida em branco."
+    },
+    "sources": {
+      "title": "Fontes de toner",
+      "mode_attributes": "Os valores vêm dos atributos da entidade do cartão",
+      "mode_auto": "Sensores de cartuchos detectados automaticamente a partir do dispositivo da impressora",
+      "mode_none": "Nenhum sensor de cartucho detectado — atribua-os manualmente",
+      "auto": "Auto",
+      "manual": "Manual",
+      "reset": "Redefinir para o sensor detectado",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Ciano",
+      "magenta": "Magenta",
+      "yellow": "Amarelo",
+      "black": "Preto"
     }
+  },
+  "feature": {
+    "last_known": "Último valor conhecido"
   }
 }

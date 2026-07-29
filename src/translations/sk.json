@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Zobraziť čierny ako biely",
       "description": "Ak je povolené, ukazovateľ hladiny čierneho tonera sa zobrazí bielou farbou."
+    },
+    "sources": {
+      "title": "Zdroje tonera",
+      "mode_attributes": "Hodnoty pochádzajú z atribútov entity dlaždice",
+      "mode_auto": "Senzory kaziet automaticky rozpoznané zo zariadenia tlačiarne",
+      "mode_none": "Nenašli sa žiadne senzory kaziet — priraďte ich ručne",
+      "auto": "Auto",
+      "manual": "Ručne",
+      "reset": "Obnoviť rozpoznaný senzor",
+      "sensor": "Senzor"
+    },
+    "colors": {
+      "cyan": "Azúrová",
+      "magenta": "Purpurová",
+      "yellow": "Žltá",
+      "black": "Čierna"
     }
+  },
+  "feature": {
+    "last_known": "Posledná známa hodnota"
   }
 }
