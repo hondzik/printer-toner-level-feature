@@ -24,5 +24,8 @@
       "yellow": "Gelb",
       "black": "Schwarz"
     }
+  },
+  "feature": {
+    "last_known": "Letzter bekannter Wert"
   }
 }

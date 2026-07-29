@@ -1,9 +1,12 @@
 import { LitElement, html, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import setupCustomlocalize from './localize';
 import { printerTonerLevelFeatureStyles } from './printer-toner-level-feature.styles';
 import { getBoolConfigVal } from './utils/config-utils';
 import { infoBlock } from './utils/info-block';
+import { fetchLastKnownLevel } from './utils/last-known';
 import { autoDiscoverTonerEntities, resolveTonerSources } from './utils/toner-sources';
+import type { LastKnownLevel } from './utils/last-known';
 import type { TonerColor, TonerSource } from './utils/toner-sources';
 import type { HomeAssistant } from 'custom-card-helpers';
 import type { HassEntity } from 'home-assistant-js-websocket';
@@ -25,6 +28,9 @@ export class PrinterTonerLevelFeature extends LitElement {
   @property({ attribute: false }) hass?: HomeAssistant;
   @property({ attribute: false }) config?: PrinterTonerLevelFeatureConfig;
   @property({ attribute: false }) context?: LovelaceCardFeatureContext;
+
+  @state() private _lastKnown: Record<string, { value?: LastKnownLevel; fetchedAt: number }> = {};
+  private _lastKnownFetching = new Set<string>();
 
   static getConfigElement(): HTMLElement {
     return document.createElement('printer-toner-level-feature-config');
@@ -90,16 +96,41 @@ export class PrinterTonerLevelFeature extends LitElement {
 
   renderToner(source: TonerSource | undefined): TemplateResult {
     if (!source) return html``;
-    const level = source.level ?? 0;
+    let level = source.level;
+    let lastKnown: LastKnownLevel | undefined;
+    if (level === undefined && source.entityId) {
+      // entity is unavailable — fall back to the newest long-term statistics value
+      this._queueLastKnown(source.entityId);
+      lastKnown = this._lastKnown[source.entityId]?.value;
+      level = lastKnown?.level;
+    }
     const showPercent = getBoolConfigVal(this.config, 'show_percent', true);
+    const title = lastKnown ? `${setupCustomlocalize(this.hass)('feature.last_known')}: ${new Date(lastKnown.start).toLocaleDateString(this.hass?.locale?.language)}` : undefined;
     return html`
-      <div class="${source.color} toner">
+      <div class="${source.color} toner${lastKnown ? ' stale' : ''}" title=${title ?? nothing}>
         <div class="background">
-          <div class="level" style="width: ${level}%;"></div>
+          <div class="level" style="width: ${level ?? 0}%;"></div>
         </div>
-        ${showPercent ? html`<div class="percent">${level}</div>` : nothing}
+        ${showPercent ? html`<div class="percent">${level ?? 0}</div>` : nothing}
       </div>
     `;
+  }
+
+  private _queueLastKnown(entityId: string) {
+    if (!this.hass || this._lastKnownFetching.has(entityId)) return;
+    const cached = this._lastKnown[entityId];
+    if (cached && Date.now() - cached.fetchedAt < 30 * 60 * 1000) return;
+    this._lastKnownFetching.add(entityId);
+    fetchLastKnownLevel(this.hass, entityId)
+      .then((value) => {
+        this._lastKnown = { ...this._lastKnown, [entityId]: { value, fetchedAt: Date.now() } };
+      })
+      .catch(() => {
+        this._lastKnown = { ...this._lastKnown, [entityId]: { fetchedAt: Date.now() } };
+      })
+      .finally(() => {
+        this._lastKnownFetching.delete(entityId);
+      });
   }
 
   static get styles(): CSSResultGroup {
