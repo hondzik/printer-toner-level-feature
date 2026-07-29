@@ -83,8 +83,8 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
         white-space: nowrap;
       }
       .chip.auto {
-        background-color: rgba(var(--rgb-state-active-color, 67, 160, 71), 0.16);
-        color: var(--state-active-color, var(--success-color, #2e7d32));
+        background-color: rgba(76, 175, 80, 0.16);
+        color: var(--success-color, #2e7d32);
       }
       .chip.manual {
         background-color: rgba(255, 152, 0, 0.16);
@@ -203,6 +203,7 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
           .selector=${{ entity: { domain: 'sensor' } }}
           .value=${value}
           .label=${customLocalize('editor.sources.sensor')}
+          .required=${false}
           @value-changed=${(ev: CustomEvent) => this._onSourceChange(color, ev)}
         ></ha-selector>
         <div class="row-tail">

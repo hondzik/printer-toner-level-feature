@@ -150,8 +150,8 @@ function e(e,t,r,o){var i,s=arguments.length,n=s<3?t:null===o?o=Object.getOwnPro
         white-space: nowrap;
       }
       .chip.auto {
-        background-color: rgba(var(--rgb-state-active-color, 67, 160, 71), 0.16);
-        color: var(--state-active-color, var(--success-color, #2e7d32));
+        background-color: rgba(76, 175, 80, 0.16);
+        color: var(--success-color, #2e7d32);
       }
       .chip.manual {
         background-color: rgba(255, 152, 0, 0.16);
@@ -220,6 +220,7 @@ function e(e,t,r,o){var i,s=arguments.length,n=s<3?t:null===o?o=Object.getOwnPro
           .selector=${{entity:{domain:"sensor"}}}
           .value=${i}
           .label=${t("editor.sources.sensor")}
+          .required=${!1}
           @value-changed=${t=>this._onSourceChange(e,t)}
         ></ha-selector>
         <div class="row-tail">
