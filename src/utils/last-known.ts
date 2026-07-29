@@ -10,21 +10,28 @@ export type LastKnownLevel = {
 type StatisticsRow = { start: number; end: number; mean?: number | null };
 type StatisticsResult = Record<string, StatisticsRow[]>;
 
-const LOOKBACK_DAYS = 365;
+const LONG_TERM_LOOKBACK_DAYS = 365;
+const SHORT_TERM_LOOKBACK_DAYS = 10;
 
 /**
  * Fetch the last known toner level of an entity from the recorder's
- * long-term statistics. Unlike raw history these survive the recorder
- * purge, so a value is found no matter how long the printer has been
- * off — toner cannot change while it is.
+ * statistics. Long-term (hourly) statistics survive the recorder purge,
+ * so a value is found no matter how long the printer has been off —
+ * toner cannot change while it is. Freshly added sensors have no hourly
+ * rows until the first top-of-the-hour compile, so fall back to the
+ * short-term (5-minute) statistics in that case.
  */
 export async function fetchLastKnownLevel(hass: HomeAssistant, entityId: string): Promise<LastKnownLevel | undefined> {
-  const start = new Date(Date.now() - LOOKBACK_DAYS * 86400 * 1000).toISOString();
+  return (await queryLastMean(hass, entityId, 'hour', LONG_TERM_LOOKBACK_DAYS)) ?? (await queryLastMean(hass, entityId, '5minute', SHORT_TERM_LOOKBACK_DAYS));
+}
+
+async function queryLastMean(hass: HomeAssistant, entityId: string, period: 'hour' | '5minute', lookbackDays: number): Promise<LastKnownLevel | undefined> {
+  const start = new Date(Date.now() - lookbackDays * 86400 * 1000).toISOString();
   const result = await hass.callWS<StatisticsResult>({
     type: 'recorder/statistics_during_period',
     start_time: start,
     statistic_ids: [entityId],
-    period: 'day',
+    period,
     types: ['mean'],
   });
   const rows = result?.[entityId] ?? [];
