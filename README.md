@@ -76,6 +76,24 @@ The way you fill in the individual attributes will vary depending on the integra
 
 After adding this to your template sensor configuration, reload templates (Developer tools → YAML → Template entities) or restart Home Assistant, and confirm the new sensor shows the expected attributes on its "Attributes" tab before moving on.
 
+#### Transforming a `state_content` value while still using auto-discovery
+
+If you're relying on auto-discovery (source 3) instead of a template sensor, the Tile card's `entity` is the printer's own entity — and `state_content` can then only show that entity's attributes as-is, with no way to transform them (e.g. extracting just the IP out of a longer `uri_supported` attribute, like the example above does).
+
+You don't have to give up auto-discovery to get a transformed value in `state_content` though: create a lightweight template sensor purely for display, and attach it to the printer's *device* via `device_id:` so auto-discovery still finds the cartridge sensors on that device, exactly as if you'd used the printer's own entity as the Tile card's entity. Skip the `domain`/`*_level` attributes entirely — auto-discovery already covers the toner data, so this template sensor is display-only:
+
+```yaml
+- sensor:
+    - name: "HP Color LasetJet Pro MFP M283fdw"
+      device_id: "<the printer device's ID>"
+      state: "{{ states('sensor.hp_colorlaserjet_mfp_m282_m285_2') }}"
+      icon: mdi:printer
+      attributes:
+        ip: "{{ state_attr('sensor.hp_colorlaserjet_mfp_m282_m285_2', 'uri_supported').split('/')[2] }}"
+```
+
+Find the device ID with the `device_id()` template function in Developer tools → Template, e.g. `{{ device_id('sensor.hp_colorlaserjet_mfp_m282_m285_2') }}`. Then point the Tile card's `entity` at this new template sensor instead of the raw printer entity, and reference `ip` in `state_content` as usual.
+
 ### 3. Add a Tile card and the feature
 
 Create a Tile card, pick the template sensor you just created as its entity, and add the feature. In the feature picker you should see **Printer toner level** listed (it only appears for entities carrying the `domain: "printer"` attribute).
