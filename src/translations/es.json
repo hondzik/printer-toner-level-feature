@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Mostrar negro como blanco",
       "description": "Si está habilitado, la barra de nivel del tóner negro se muestra en blanco."
+    },
+    "sources": {
+      "title": "Fuentes de tóner",
+      "mode_attributes": "Los valores provienen de los atributos de la entidad de la tarjeta",
+      "mode_auto": "Sensores de cartuchos detectados automáticamente desde el dispositivo de la impresora",
+      "mode_none": "No se detectaron sensores de cartuchos — asígnalos manualmente",
+      "auto": "Auto",
+      "manual": "Manual",
+      "reset": "Restablecer al sensor detectado",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cian",
+      "magenta": "Magenta",
+      "yellow": "Amarillo",
+      "black": "Negro"
     }
+  },
+  "feature": {
+    "last_known": "Último valor conocido"
   }
 }

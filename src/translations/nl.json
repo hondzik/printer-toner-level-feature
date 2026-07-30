@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Zwart als wit weergeven",
       "description": "Indien ingeschakeld, wordt de zwarte tonerniveaubalk in witte kleur weergegeven."
+    },
+    "sources": {
+      "title": "Tonerbronnen",
+      "mode_attributes": "Waarden komen uit de attributen van de tegel-entiteit",
+      "mode_auto": "Cartridgesensoren automatisch gedetecteerd via het printerapparaat",
+      "mode_none": "Geen cartridgesensoren gedetecteerd — wijs ze handmatig toe",
+      "auto": "Auto",
+      "manual": "Handmatig",
+      "reset": "Terugzetten naar gedetecteerde sensor",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cyaan",
+      "magenta": "Magenta",
+      "yellow": "Geel",
+      "black": "Zwart"
     }
+  },
+  "feature": {
+    "last_known": "Laatst bekende waarde"
   }
 }

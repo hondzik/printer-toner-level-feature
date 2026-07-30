@@ -94,4 +94,13 @@ export const printerTonerLevelFeatureStyles = css`
   .black-as-white .black.toner .level {
     background-color: rgba(255, 255, 255, 0.7);
   }
+
+  .toner.stale .level {
+    opacity: 0.55;
+  }
+
+  .toner.stale .percent {
+    opacity: 0.7;
+    font-style: italic;
+  }
 `;

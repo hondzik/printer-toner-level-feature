@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Afficher le noir en blanc",
       "description": "Si activé, la barre de niveau du toner noir est affichée en blanc."
+    },
+    "sources": {
+      "title": "Sources de toner",
+      "mode_attributes": "Les valeurs proviennent des attributs de l'entité de la carte",
+      "mode_auto": "Capteurs de cartouches détectés automatiquement depuis l'appareil imprimante",
+      "mode_none": "Aucun capteur de cartouche détecté — attribuez-les manuellement",
+      "auto": "Auto",
+      "manual": "Manuel",
+      "reset": "Réinitialiser au capteur détecté",
+      "sensor": "Capteur"
+    },
+    "colors": {
+      "cyan": "Cyan",
+      "magenta": "Magenta",
+      "yellow": "Jaune",
+      "black": "Noir"
     }
+  },
+  "feature": {
+    "last_known": "Dernière valeur connue"
   }
 }

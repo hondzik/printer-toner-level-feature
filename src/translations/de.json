@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Schwarz als Weiß anzeigen",
       "description": "Wenn aktiviert, wird die Füllstandsanzeige für schwarzen Toner in Weiß dargestellt."
+    },
+    "sources": {
+      "title": "Tonerquellen",
+      "mode_attributes": "Werte kommen aus den Attributen der Kachel-Entität",
+      "mode_auto": "Kartuschen-Sensoren automatisch am Drucker-Gerät erkannt",
+      "mode_none": "Keine Kartuschen-Sensoren erkannt — bitte manuell zuordnen",
+      "auto": "Auto",
+      "manual": "Manuell",
+      "reset": "Auf erkannten Sensor zurücksetzen",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cyan",
+      "magenta": "Magenta",
+      "yellow": "Gelb",
+      "black": "Schwarz"
     }
+  },
+  "feature": {
+    "last_known": "Letzter bekannter Wert"
   }
 }

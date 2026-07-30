@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Vis svart som hvit",
       "description": "Når aktivert, vises den svarte tonernivålinjen i hvit farge."
+    },
+    "sources": {
+      "title": "Tonerkilder",
+      "mode_attributes": "Verdiene hentes fra attributtene til kortets entitet",
+      "mode_auto": "Kassettsensorer oppdaget automatisk fra skriverenheten",
+      "mode_none": "Ingen kassettsensorer oppdaget — tilordne dem manuelt",
+      "auto": "Auto",
+      "manual": "Manuell",
+      "reset": "Tilbakestill til oppdaget sensor",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cyan",
+      "magenta": "Magenta",
+      "yellow": "Gul",
+      "black": "Svart"
     }
+  },
+  "feature": {
+    "last_known": "Siste kjente verdi"
   }
 }

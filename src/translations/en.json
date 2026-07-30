@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Display black as white",
       "description": "When enabled, displays the black toner level bar in white color."
+    },
+    "sources": {
+      "title": "Toner sources",
+      "mode_attributes": "Values come from the tile entity's attributes",
+      "mode_auto": "Cartridge sensors detected automatically from the printer device",
+      "mode_none": "No cartridge sensors detected — assign them manually",
+      "auto": "Auto",
+      "manual": "Manual",
+      "reset": "Reset to detected sensor",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cyan",
+      "magenta": "Magenta",
+      "yellow": "Yellow",
+      "black": "Black"
     }
+  },
+  "feature": {
+    "last_known": "Last known value"
   }
 }

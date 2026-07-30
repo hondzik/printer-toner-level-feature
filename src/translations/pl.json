@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Wyświetlaj czarny jako biały",
       "description": "Gdy włączone, pasek poziomu czarnego tonera jest wyświetlany w kolorze białym."
+    },
+    "sources": {
+      "title": "Źródła tonera",
+      "mode_attributes": "Wartości pochodzą z atrybutów encji kafelka",
+      "mode_auto": "Czujniki wkładów wykryte automatycznie na urządzeniu drukarki",
+      "mode_none": "Nie wykryto czujników wkładów — przypisz je ręcznie",
+      "auto": "Auto",
+      "manual": "Ręcznie",
+      "reset": "Przywróć wykryty czujnik",
+      "sensor": "Czujnik"
+    },
+    "colors": {
+      "cyan": "Cyjan",
+      "magenta": "Magenta",
+      "yellow": "Żółty",
+      "black": "Czarny"
     }
+  },
+  "feature": {
+    "last_known": "Ostatnia znana wartość"
   }
 }

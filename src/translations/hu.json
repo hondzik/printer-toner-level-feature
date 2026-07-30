@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Fekete megjelenítése fehérként",
       "description": "Ha engedélyezve van, a fekete festékszint sáv fehér színben jelenik meg."
+    },
+    "sources": {
+      "title": "Tonerforrások",
+      "mode_attributes": "Az értékek a csempe entitás attribútumaiból származnak",
+      "mode_auto": "A patronérzékelők automatikusan felismerve a nyomtató eszközről",
+      "mode_none": "Nem található patronérzékelő — rendelje hozzá kézzel",
+      "auto": "Auto",
+      "manual": "Kézi",
+      "reset": "Visszaállítás a felismert érzékelőre",
+      "sensor": "Érzékelő"
+    },
+    "colors": {
+      "cyan": "Cián",
+      "magenta": "Bíbor",
+      "yellow": "Sárga",
+      "black": "Fekete"
     }
+  },
+  "feature": {
+    "last_known": "Utolsó ismert érték"
   }
 }

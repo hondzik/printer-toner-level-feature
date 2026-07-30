@@ -7,6 +7,25 @@
     "black_as_white": {
       "label": "Visa svart som vitt",
       "description": "När aktiverat visas den svarta tonernivåindikatorn i vit färg."
+    },
+    "sources": {
+      "title": "Tonerkällor",
+      "mode_attributes": "Värdena kommer från kortentitetens attribut",
+      "mode_auto": "Kassettsensorer upptäcktes automatiskt från skrivarenheten",
+      "mode_none": "Inga kassettsensorer hittades — tilldela dem manuellt",
+      "auto": "Auto",
+      "manual": "Manuell",
+      "reset": "Återställ till upptäckt sensor",
+      "sensor": "Sensor"
+    },
+    "colors": {
+      "cyan": "Cyan",
+      "magenta": "Magenta",
+      "yellow": "Gul",
+      "black": "Svart"
     }
+  },
+  "feature": {
+    "last_known": "Senast kända värde"
   }
 }
