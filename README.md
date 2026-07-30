@@ -166,6 +166,10 @@ If you skipped the template sensor step in [step 2](#2-get-toner-levels-into-the
 - **Only a black bar shows even though the printer is color** — no cyan source resolved for the entity: check that `cyan_level` is present (not `null`/omitted) if you're using the attribute contract, that a cyan sensor exists on the same device if you're relying on auto-discovery, or set `cyan_entity` manually.
 - **Wrong sensor got auto-discovered for a color** — auto-discovery matches by color name in the sensor's friendly name/entity id, so it can pick the wrong sensor if names are ambiguous. Open the visual editor and set that color's entity manually.
 
+## Translations
+
+The visual editor is localized into: Czech, German, English, Spanish, French, Hungarian, Italian, Dutch, Norwegian, Polish, Portuguese, Slovak, Swedish and Ukrainian (falls back to English for any other language). Don't see your language, or spot something wrong in an existing translation? Feel free to open an issue or PR — new translations are always welcome.
+
 ## Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=hondzik/printer-toner-level-feature)](https://github.com/hondzik/printer-toner-level-feature/graphs/contributors)
