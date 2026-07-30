@@ -26,8 +26,8 @@
   "scripts": {
     "watch": "rollup -c -w",
     "build": "rollup -c",
-    "copy to HAOS": "node scripts/copy-to-haos.js",
     "lint & format": "eslint src --ext .ts,.js --fix && prettier --write src/**/*.{ts,js,json,css,scss,html}",
+    "test": "vitest run",
     "version MAJOR": "npm version major",
     "version MINOR": "npm version minor",
     "version PATCH": "npm version patch"
@@ -46,7 +46,8 @@
     "rollup": "^4.62.3",
     "rollup-plugin-summary": "^3.0.1",
     "tslib": "^2.8.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
     "custom-card-helpers": "^2.0.0",

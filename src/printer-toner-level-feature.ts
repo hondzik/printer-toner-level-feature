@@ -5,7 +5,7 @@ import { printerTonerLevelFeatureStyles } from './printer-toner-level-feature.st
 import { getBoolConfigVal } from './utils/config-utils';
 import { infoBlock } from './utils/info-block';
 import { fetchLastKnownLevel } from './utils/last-known';
-import { autoDiscoverTonerEntities, resolveTonerSources } from './utils/toner-sources';
+import { autoDiscoverTonerEntities, hasAttributeContract, resolveTonerSources } from './utils/toner-sources';
 import type { LastKnownLevel } from './utils/last-known';
 import type { TonerColor, TonerSource } from './utils/toner-sources';
 import type { HomeAssistant } from 'custom-card-helpers';
@@ -17,8 +17,7 @@ infoBlock();
 
 const supportsPrinterTonerLevelFeature = (hass: HomeAssistant, context: LovelaceCardFeatureContext): boolean => {
   const stateObj = context.entity_id ? hass.states[context.entity_id] : undefined;
-  // original attribute contract
-  if (!!stateObj && stateObj.attributes?.domain === 'printer' && typeof stateObj.attributes?.black_level === 'number') return true;
+  if (hasAttributeContract(stateObj)) return true;
   // cartridge sensors on the same device as the tile entity
   return !!autoDiscoverTonerEntities(hass, context.entity_id).black;
 };

@@ -101,103 +101,103 @@ function e(e,t,o,r){var n,s=arguments.length,i=s<3?t:null===r?r=Object.getOwnPro
     opacity: 0.7;
     font-style: italic;
   }
-`;function st(e,t,o){const r=e?.[t];return void 0!==r?!!r:o}var it="https://github.com/hondzik/printer-toner-level-feature";async function at(e,t,o,r){const n=new Date(Date.now()-86400*r*1e3).toISOString(),s=await e.callWS({type:"recorder/statistics_during_period",start_time:n,statistic_ids:[t],period:o,types:["mean"]}),i=s?.[t]??[];for(let e=i.length-1;e>=0;e--){const t=i[e].mean;if("number"==typeof t)return{level:Math.round(t),start:i[e].start}}}const lt=["cyan","magenta","yellow","black"],ct={cyan:["cyan"],magenta:["magenta"],yellow:["yellow"],black:["black"]};function dt(e,t){const o=e.entities,r=t?o?.[t]?.device_id:void 0;if(!o||!r)return{};const n=Object.values(o).filter(e=>e.device_id===r&&e.entity_id.startsWith("sensor.")).map(t=>({entityId:t.entity_id,stateObj:e.states[t.entity_id]})).filter(({stateObj:e})=>!!e&&("%"===e.attributes?.unit_of_measurement||("unavailable"===e.state||"unknown"===e.state))).sort((e,t)=>e.entityId.localeCompare(t.entityId)),s={},i=new Set;for(const e of lt){const t=n.find(({entityId:t,stateObj:o})=>{if(i.has(t))return!1;const r=`${o?.attributes?.friendly_name??""} ${t}`.toLowerCase();return ct[e].some(e=>r.includes(e))});t&&(s[e]=t.entityId,i.add(t.entityId))}return s}function ht(e,t,o,r){const n=Number(e.states[o]?.state);return{color:t,origin:r,entityId:o,level:Number.isFinite(n)?n:void 0}}const ut={cyan:"rgba(0, 255, 255, 0.7)",magenta:"rgba(255, 0, 255, 0.7)",yellow:"rgba(255, 255, 0, 0.7)",black:"var(--primary-text-color)"};let pt=class extends ae{constructor(){super(...arguments),this.config={}}setConfig(e){this.config={...e}}static get styles(){return i`
-      .section-label {
-        font-size: var(--ha-font-size-s, 12px);
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--secondary-text-color);
-        margin: 8px 0;
-      }
-      .source-banner {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        border-radius: 8px;
-        padding: 8px 12px;
-        margin-bottom: 12px;
-        font-size: var(--ha-font-size-m, 14px);
-        background-color: rgba(var(--rgb-primary-color, 3, 169, 244), 0.12);
-        color: var(--primary-text-color);
-      }
-      .source-banner .secondary {
-        font-size: var(--ha-font-size-s, 12px);
-        color: var(--secondary-text-color);
-      }
-      .source-row {
-        display: grid;
-        grid-template-columns: 92px 1fr auto;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
-      }
-      .swatch-col {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .swatch {
-        width: 14px;
-        height: 14px;
-        border-radius: 4px;
-        flex: none;
-        box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.4);
-      }
-      .row-tail {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        justify-content: flex-end;
-        min-width: 92px;
-      }
-      .chip {
-        font-size: 11px;
-        font-weight: 500;
-        border-radius: 999px;
-        padding: 3px 9px;
-        white-space: nowrap;
-      }
-      .chip.auto {
-        background-color: rgba(76, 175, 80, 0.16);
-        color: var(--success-color, #2e7d32);
-      }
-      .chip.manual {
-        background-color: rgba(255, 152, 0, 0.16);
-        color: var(--warning-color, #b26a00);
-      }
-      .reset-button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        padding: 0;
-        color: var(--secondary-text-color);
-      }
-      .reset-button:hover {
-        background-color: rgba(127, 127, 127, 0.15);
-      }
-      .reset-button:focus-visible {
-        outline: 2px solid var(--primary-color);
-      }
-      .reset-button svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
-      }
-      ha-selector {
-        display: block;
-        min-width: 0;
-      }
-      .options {
-        border-top: 1px solid var(--divider-color);
-        margin-top: 8px;
-      }
-    `}get _autoEntities(){return this.hass?dt(this.hass,this.context?.entity_id):{}}get _hasAttributeContract(){const e=this.context?.entity_id?this.hass?.states[this.context.entity_id]:void 0;return!!e&&"printer"===e.attributes?.domain&&"number"==typeof e.attributes?.black_level}get _deviceName(){const e=this.hass,t=this.context?.entity_id?e?.entities?.[this.context.entity_id]?.device_id:void 0,o=t?e?.devices?.[t]:void 0;return o?.name_by_user??o?.name}render(){const e=rt(this.hass),t=this._autoEntities,o=Object.keys(t).length;let r;r=this._hasAttributeContract&&0===o?e("editor.sources.mode_attributes"):e(o>0?"editor.sources.mode_auto":"editor.sources.mode_none");const n=o>0?this._deviceName:void 0;return W`
+`;function st(e,t,o){const r=e?.[t];return void 0!==r?!!r:o}var it="https://github.com/hondzik/printer-toner-level-feature";async function at(e,t,o,r){const n=new Date(Date.now()-86400*r*1e3).toISOString(),s=await e.callWS({type:"recorder/statistics_during_period",start_time:n,statistic_ids:[t],period:o,types:["mean"]}),i=s?.[t]??[];for(let e=i.length-1;e>=0;e--){const t=i[e].mean;if("number"==typeof t)return{level:Math.round(t),start:i[e].start}}}const lt=["cyan","magenta","yellow","black"],ct={cyan:["cyan"],magenta:["magenta"],yellow:["yellow"],black:["black"]};function dt(e){return!!e&&"printer"===e.attributes?.domain&&"number"==typeof e.attributes?.black_level}function ht(e,t){const o=e.entities,r=t?o?.[t]?.device_id:void 0;if(!o||!r)return{};const n=Object.values(o).filter(e=>e.device_id===r&&e.entity_id.startsWith("sensor.")).map(t=>({entityId:t.entity_id,stateObj:e.states[t.entity_id]})).filter(({stateObj:e})=>!!e&&("%"===e.attributes?.unit_of_measurement||("unavailable"===e.state||"unknown"===e.state))).sort((e,t)=>e.entityId.localeCompare(t.entityId)),s={},i=new Set;for(const e of lt){const t=n.find(({entityId:t,stateObj:o})=>{if(i.has(t))return!1;const r=`${o?.attributes?.friendly_name??""} ${t}`.toLowerCase();return ct[e].some(e=>r.includes(e))});t&&(s[e]=t.entityId,i.add(t.entityId))}return s}function ut(e,t,o,r){const n=Number(e.states[o]?.state);return{color:t,origin:r,entityId:o,level:Number.isFinite(n)?n:void 0}}const pt=i`
+  .section-label {
+    font-size: var(--ha-font-size-s, 12px);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+    margin: 8px 0;
+  }
+  .source-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: var(--ha-font-size-m, 14px);
+    background-color: rgba(var(--rgb-primary-color, 3, 169, 244), 0.12);
+    color: var(--primary-text-color);
+  }
+  .source-banner .secondary {
+    font-size: var(--ha-font-size-s, 12px);
+    color: var(--secondary-text-color);
+  }
+  .source-row {
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .swatch-col {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    flex: none;
+    box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.4);
+  }
+  .row-tail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: flex-end;
+    min-width: 92px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 999px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .chip.auto {
+    background-color: rgba(76, 175, 80, 0.16);
+    color: var(--success-color, #2e7d32);
+  }
+  .chip.manual {
+    background-color: rgba(255, 152, 0, 0.16);
+    color: var(--warning-color, #b26a00);
+  }
+  .reset-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: var(--secondary-text-color);
+  }
+  .reset-button:hover {
+    background-color: rgba(127, 127, 127, 0.15);
+  }
+  .reset-button:focus-visible {
+    outline: 2px solid var(--primary-color);
+  }
+  .reset-button svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+  ha-selector {
+    display: block;
+    min-width: 0;
+  }
+  .options {
+    border-top: 1px solid var(--divider-color);
+    margin-top: 8px;
+  }
+`,_t={cyan:"rgba(0, 255, 255, 0.7)",magenta:"rgba(255, 0, 255, 0.7)",yellow:"rgba(255, 255, 0, 0.7)",black:"var(--primary-text-color)"};let bt=class extends ae{constructor(){super(...arguments),this.config={}}setConfig(e){this.config={...e}}static get styles(){return pt}get _autoEntities(){return this.hass?ht(this.hass,this.context?.entity_id):{}}get _hasAttributeContract(){return dt(this.context?.entity_id?this.hass?.states[this.context.entity_id]:void 0)}get _deviceName(){const e=this.hass,t=this.context?.entity_id?e?.entities?.[this.context.entity_id]?.device_id:void 0,o=t?e?.devices?.[t]:void 0;return o?.name_by_user??o?.name}render(){const e=rt(this.hass),t=this._autoEntities,o=Object.keys(t).length;let r;r=this._hasAttributeContract&&0===o?e("editor.sources.mode_attributes"):e(o>0?"editor.sources.mode_auto":"editor.sources.mode_none");const n=o>0?this._deviceName:void 0;return W`
       <div class="section-label">${e("editor.sources.title")}</div>
       <div class="source-banner">
         <div>
@@ -221,7 +221,7 @@ function e(e,t,o,r){var n,s=arguments.length,i=s<3?t:null===r?r=Object.getOwnPro
     `}renderSourceRow(e,t){const o=this.config[`${e}_entity`],r=this._autoEntities[e],n=o??r??"";let s=B;return o?s=W`<span class="chip manual">${t("editor.sources.manual")}</span>`:r&&(s=W`<span class="chip auto">${t("editor.sources.auto")}</span>`),W`
       <div class="source-row">
         <div class="swatch-col">
-          <span class="swatch" style="background-color: ${ut[e]}"></span>
+          <span class="swatch" style="background-color: ${_t[e]}"></span>
           <span>${t("editor.colors."+e)}</span>
         </div>
         <ha-selector
@@ -235,13 +235,13 @@ function e(e,t,o,r){var n,s=arguments.length,i=s<3?t:null===r?r=Object.getOwnPro
         <div class="row-tail">
           ${s}
           ${o?W`
-                <button class="reset-button" title=${t("editor.sources.reset")} aria-label=${t("editor.sources.reset")} @click=${()=>this._onSourceReset(e)}>
-                  <svg viewBox="0 0 24 24"><path d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" /></svg>
-                </button>
-              `:B}
+                  <button class="reset-button" title=${t("editor.sources.reset")} aria-label=${t("editor.sources.reset")} @click=${()=>this._onSourceReset(e)}>
+                    <svg viewBox="0 0 24 24"><path d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" /></svg>
+                  </button>
+                `:B}
         </div>
       </div>
-    `}_onSourceChange(e,t){t.stopPropagation();const o=t.detail?.value||void 0,r={...this.config};o&&o!==this._autoEntities[e]?r[`${e}_entity`]=o:delete r[`${e}_entity`],this._updateConfig(r)}_onSourceReset(e){const t={...this.config};delete t[`${e}_entity`],this._updateConfig(t)}_onShowPercentChange(e){const t=e.target.checked;this._updateConfig({...this.config,show_percent:t})}_onBlackAsWhiteChange(e){const t=e.target.checked;this._updateConfig({...this.config,black_as_white:t})}_updateConfig(e){this.config=e,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this.config},bubbles:!0,composed:!0}))}};e([ue({attribute:!1})],pt.prototype,"hass",void 0),e([ue({attribute:!1})],pt.prototype,"context",void 0),e([ue({type:Object})],pt.prototype,"config",void 0),pt=e([ce("printer-toner-level-feature-config")],pt),function(){const e="padding: 2px 4px; font-family: Roboto,Verdana,Geneva,sans-serif;",t=`background-color: rgb(255, 127, 15); color: rgb(0, 0, 49); ${e}`,o=`background-color: rgb(0, 0, 49); color: rgb(255, 127, 15); ${e}`;console.groupCollapsed("%cPrinter toner Tile card feature%c1.0.7",t,o),console.info("A Home Assistant Lovelace custom card feature to display printer toner levels"),console.info(`Github: ${it}`),console.groupEnd()}();let _t=class extends ae{constructor(){super(...arguments),this._lastKnown={},this._lastKnownFetching=new Set}static getConfigElement(){return document.createElement("printer-toner-level-feature-config")}static getStubConfig(){return{type:"custom:printer-toner-level-feature"}}get stateObj(){return this.context?.entity_id?this.hass?.states[this.context.entity_id]:void 0}set stateObj(e){}get tonerSources(){return this.hass?function(e,t,o){const r=t?e.states[t]:void 0,n=dt(e,t),s={};for(const t of lt){const i=o?.[`${t}_entity`];if(i){s[t]=ht(e,t,i,"manual");continue}const a=r?.attributes?.[t+"_level"];if("number"==typeof a){s[t]={color:t,origin:"attribute",level:a};continue}const l=n[t];l&&(s[t]=ht(e,t,l,"auto"))}return s}(this.hass,this.context?.entity_id,this.config):{}}get isColorPrinter(){return!!this.tonerSources.cyan}getCardSize(){return this.isColorPrinter?3:2}setConfig(e){this.config=e}render(){const e=this.hass&&this.config&&this.context?this.tonerSources:{};if(!e.black)return W`
+    `}_onSourceChange(e,t){t.stopPropagation();const o=t.detail?.value||void 0,r={...this.config};o&&o!==this._autoEntities[e]?r[`${e}_entity`]=o:delete r[`${e}_entity`],this._updateConfig(r)}_onSourceReset(e){const t={...this.config};delete t[`${e}_entity`],this._updateConfig(t)}_onShowPercentChange(e){const t=e.target.checked;this._updateConfig({...this.config,show_percent:t})}_onBlackAsWhiteChange(e){const t=e.target.checked;this._updateConfig({...this.config,black_as_white:t})}_updateConfig(e){this.config=e,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this.config},bubbles:!0,composed:!0}))}};e([ue({attribute:!1})],bt.prototype,"hass",void 0),e([ue({attribute:!1})],bt.prototype,"context",void 0),e([ue({type:Object})],bt.prototype,"config",void 0),bt=e([ce("printer-toner-level-feature-config")],bt),function(){const e="padding: 2px 4px; font-family: Roboto,Verdana,Geneva,sans-serif;",t=`background-color: rgb(255, 127, 15); color: rgb(0, 0, 49); ${e}`,o=`background-color: rgb(0, 0, 49); color: rgb(255, 127, 15); ${e}`;console.groupCollapsed("%cPrinter toner Tile card feature%c1.0.7",t,o),console.info("A Home Assistant Lovelace custom card feature to display printer toner levels"),console.info(`Github: ${it}`),console.groupEnd()}();let gt=class extends ae{constructor(){super(...arguments),this._lastKnown={},this._lastKnownFetching=new Set}static getConfigElement(){return document.createElement("printer-toner-level-feature-config")}static getStubConfig(){return{type:"custom:printer-toner-level-feature"}}get stateObj(){return this.context?.entity_id?this.hass?.states[this.context.entity_id]:void 0}set stateObj(e){}get tonerSources(){return this.hass?function(e,t,o){const r=t?e.states[t]:void 0,n=ht(e,t),s={};for(const t of lt){const i=o?.[`${t}_entity`];if(i){s[t]=ut(e,t,i,"manual");continue}const a=r?.attributes?.[t+"_level"];if("number"==typeof a){s[t]={color:t,origin:"attribute",level:a};continue}const l=n[t];l&&(s[t]=ut(e,t,l,"auto"))}return s}(this.hass,this.context?.entity_id,this.config):{}}get isColorPrinter(){return!!this.tonerSources.cyan}getCardSize(){return this.isColorPrinter?3:2}setConfig(e){this.config=e}render(){const e=this.hass&&this.config&&this.context?this.tonerSources:{};if(!e.black)return W`
         <div class="toners">
           <div>Unsupported feature</div>
         </div>
@@ -256,4 +256,4 @@ function e(e,t,o,r){var n,s=arguments.length,i=s<3?t:null===r?r=Object.getOwnPro
         </div>
         ${r?W`<div class="percent">${o??0}</div>`:B}
       </div>
-    `}_queueLastKnown(e){if(!this.hass||this._lastKnownFetching.has(e))return;const t=this._lastKnown[e];t&&Date.now()-t.fetchedAt<18e5||(this._lastKnownFetching.add(e),async function(e,t){return await at(e,t,"hour",365)??await at(e,t,"5minute",10)}(this.hass,e).then(t=>{this._lastKnown={...this._lastKnown,[e]:{value:t,fetchedAt:Date.now()}}}).catch(()=>{this._lastKnown={...this._lastKnown,[e]:{fetchedAt:Date.now()}}}).finally(()=>{this._lastKnownFetching.delete(e)}))}static get styles(){return nt}};e([ue({attribute:!1})],_t.prototype,"hass",void 0),e([ue({attribute:!1})],_t.prototype,"config",void 0),e([ue({attribute:!1})],_t.prototype,"context",void 0),e([function(e){return ue({...e,state:!0,attribute:!1})}()],_t.prototype,"_lastKnown",void 0),_t=e([ce("printer-toner-level-feature")],_t),window.customCardFeatures||=[],window.customCardFeatures.push({type:"printer-toner-level-feature",name:"Printer toner level",isSupported:(e,t)=>{const o=t.entity_id?e.states[t.entity_id]:void 0;return!(!o||"printer"!==o.attributes?.domain||"number"!=typeof o.attributes?.black_level)||!!dt(e,t.entity_id).black},configurable:!0});export{_t as PrinterTonerLevelFeature};
+    `}_queueLastKnown(e){if(!this.hass||this._lastKnownFetching.has(e))return;const t=this._lastKnown[e];t&&Date.now()-t.fetchedAt<18e5||(this._lastKnownFetching.add(e),async function(e,t){return await at(e,t,"hour",365)??await at(e,t,"5minute",10)}(this.hass,e).then(t=>{this._lastKnown={...this._lastKnown,[e]:{value:t,fetchedAt:Date.now()}}}).catch(()=>{this._lastKnown={...this._lastKnown,[e]:{fetchedAt:Date.now()}}}).finally(()=>{this._lastKnownFetching.delete(e)}))}static get styles(){return nt}};e([ue({attribute:!1})],gt.prototype,"hass",void 0),e([ue({attribute:!1})],gt.prototype,"config",void 0),e([ue({attribute:!1})],gt.prototype,"context",void 0),e([function(e){return ue({...e,state:!0,attribute:!1})}()],gt.prototype,"_lastKnown",void 0),gt=e([ce("printer-toner-level-feature")],gt),window.customCardFeatures||=[],window.customCardFeatures.push({type:"printer-toner-level-feature",name:"Printer toner level",isSupported:(e,t)=>!!dt(t.entity_id?e.states[t.entity_id]:void 0)||!!ht(e,t.entity_id).black,configurable:!0});export{gt as PrinterTonerLevelFeature};

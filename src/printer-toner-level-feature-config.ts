@@ -1,8 +1,9 @@
-import { LitElement, html, css, nothing } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import setupCustomlocalize from './localize';
+import { printerTonerLevelFeatureConfigStyles } from './printer-toner-level-feature-config.styles';
 import { getBoolConfigVal } from './utils/config-utils';
-import { autoDiscoverTonerEntities, TONER_COLORS } from './utils/toner-sources';
+import { autoDiscoverTonerEntities, hasAttributeContract, TONER_COLORS } from './utils/toner-sources';
 import type { TonerColor } from './utils/toner-sources';
 import type { HomeAssistant } from 'custom-card-helpers';
 import type { CSSResultGroup, TemplateResult } from 'lit';
@@ -25,103 +26,7 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
   }
 
   static get styles(): CSSResultGroup {
-    return css`
-      .section-label {
-        font-size: var(--ha-font-size-s, 12px);
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--secondary-text-color);
-        margin: 8px 0;
-      }
-      .source-banner {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        border-radius: 8px;
-        padding: 8px 12px;
-        margin-bottom: 12px;
-        font-size: var(--ha-font-size-m, 14px);
-        background-color: rgba(var(--rgb-primary-color, 3, 169, 244), 0.12);
-        color: var(--primary-text-color);
-      }
-      .source-banner .secondary {
-        font-size: var(--ha-font-size-s, 12px);
-        color: var(--secondary-text-color);
-      }
-      .source-row {
-        display: grid;
-        grid-template-columns: 92px 1fr auto;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
-      }
-      .swatch-col {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .swatch {
-        width: 14px;
-        height: 14px;
-        border-radius: 4px;
-        flex: none;
-        box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.4);
-      }
-      .row-tail {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        justify-content: flex-end;
-        min-width: 92px;
-      }
-      .chip {
-        font-size: 11px;
-        font-weight: 500;
-        border-radius: 999px;
-        padding: 3px 9px;
-        white-space: nowrap;
-      }
-      .chip.auto {
-        background-color: rgba(76, 175, 80, 0.16);
-        color: var(--success-color, #2e7d32);
-      }
-      .chip.manual {
-        background-color: rgba(255, 152, 0, 0.16);
-        color: var(--warning-color, #b26a00);
-      }
-      .reset-button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        padding: 0;
-        color: var(--secondary-text-color);
-      }
-      .reset-button:hover {
-        background-color: rgba(127, 127, 127, 0.15);
-      }
-      .reset-button:focus-visible {
-        outline: 2px solid var(--primary-color);
-      }
-      .reset-button svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
-      }
-      ha-selector {
-        display: block;
-        min-width: 0;
-      }
-      .options {
-        border-top: 1px solid var(--divider-color);
-        margin-top: 8px;
-      }
-    `;
+    return printerTonerLevelFeatureConfigStyles;
   }
 
   private get _autoEntities(): Partial<Record<TonerColor, string>> {
@@ -131,7 +36,7 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
 
   private get _hasAttributeContract(): boolean {
     const stateObj = this.context?.entity_id ? this.hass?.states[this.context.entity_id] : undefined;
-    return !!stateObj && stateObj.attributes?.domain === 'printer' && typeof stateObj.attributes?.black_level === 'number';
+    return hasAttributeContract(stateObj);
   }
 
   private get _deviceName(): string | undefined {
@@ -208,13 +113,15 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
         ></ha-selector>
         <div class="row-tail">
           ${chip}
-          ${manual
-            ? html`
-                <button class="reset-button" title=${customLocalize('editor.sources.reset')} aria-label=${customLocalize('editor.sources.reset')} @click=${() => this._onSourceReset(color)}>
-                  <svg viewBox="0 0 24 24"><path d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" /></svg>
-                </button>
-              `
-            : nothing}
+          ${
+            manual
+              ? html`
+                  <button class="reset-button" title=${customLocalize('editor.sources.reset')} aria-label=${customLocalize('editor.sources.reset')} @click=${() => this._onSourceReset(color)}>
+                    <svg viewBox="0 0 24 24"><path d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" /></svg>
+                  </button>
+                `
+              : nothing
+          }
         </div>
       </div>
     `;

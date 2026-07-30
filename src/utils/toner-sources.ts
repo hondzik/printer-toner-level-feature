@@ -1,4 +1,5 @@
 import type { HomeAssistant } from 'custom-card-helpers';
+import type { HassEntity } from 'home-assistant-js-websocket';
 
 export const TONER_COLORS = ['cyan', 'magenta', 'yellow', 'black'] as const;
 export type TonerColor = (typeof TONER_COLORS)[number];
@@ -20,6 +21,11 @@ const COLOR_WORDS: Record<TonerColor, string[]> = {
   yellow: ['yellow'],
   black: ['black'],
 };
+
+/** The original attribute contract: `domain: "printer"` plus a numeric `black_level`. */
+export function hasAttributeContract(stateObj: HassEntity | undefined): boolean {
+  return !!stateObj && stateObj.attributes?.domain === 'printer' && typeof stateObj.attributes?.black_level === 'number';
+}
 
 /**
  * Find cartridge sensors on the same device as the given entity.
@@ -67,11 +73,7 @@ export function autoDiscoverTonerEntities(hass: HomeAssistant, entityId?: string
  * explicit `<color>_entity` from the config, `<color>_level` attribute on the
  * tile entity (the original contract), auto-discovered device sensor.
  */
-export function resolveTonerSources(
-  hass: HomeAssistant,
-  entityId: string | undefined,
-  config: Partial<PrinterTonerLevelFeatureConfig> | undefined,
-): Partial<Record<TonerColor, TonerSource>> {
+export function resolveTonerSources(hass: HomeAssistant, entityId: string | undefined, config: Partial<PrinterTonerLevelFeatureConfig> | undefined): Partial<Record<TonerColor, TonerSource>> {
   const stateObj = entityId ? hass.states[entityId] : undefined;
   const auto = autoDiscoverTonerEntities(hass, entityId);
 
