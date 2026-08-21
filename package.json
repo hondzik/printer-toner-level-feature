@@ -26,28 +26,31 @@
   "scripts": {
     "watch": "rollup -c -w",
     "build": "rollup -c",
-    "lint & format": "eslint src --ext .ts,.js --fix && prettier --write src/**/*.{ts,js,json,css,scss,html}",
+    "lint & format": "eslint src README.md --ext .ts,.js --fix && prettier --write src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2 --fix",
+    "lint:check": "eslint src README.md --ext .ts,.js && prettier --check src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2",
     "test": "vitest run",
     "version MAJOR": "npm version major",
     "version MINOR": "npm version minor",
     "version PATCH": "npm version patch"
   },
   "devDependencies": {
+    "@eslint/markdown": "^8.0.3",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.65.0",
-    "@typescript-eslint/parser": "^8.65.0",
-    "eslint": "^10.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "eslint": "^10.8.1",
     "eslint-plugin-import-x": "^4.17.1",
+    "markdownlint-cli2": "^0.23.2",
     "prettier": "^3.9.6",
-    "rollup": "^4.62.3",
+    "rollup": "^4.62.5",
     "rollup-plugin-summary": "^3.0.1",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "dependencies": {
     "custom-card-helpers": "^2.0.0",

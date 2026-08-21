@@ -1,0 +1,16 @@
+{
+  "config": {
+    "default": true,
+    // hand-authored prose (badge links, long descriptive sentences) routinely exceeds any
+    // reasonable limit and MD013 has no --fix; not worth enforcing on Markdown docs
+    "MD013": false,
+    // repeated subsection headings under different parents are a normal README pattern,
+    // not a structural mistake
+    "MD024": { "siblings_only": true },
+    // force "compact" (single-space pipe padding, no visual column alignment) — tables with a
+    // long free-text description column can't satisfy "aligned" without absurd padding
+    "MD060": { "style": "compact" }
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules", "dist", "CLAUDE.md", ".claude"]
+}

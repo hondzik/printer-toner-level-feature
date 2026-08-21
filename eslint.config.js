@@ -1,6 +1,7 @@
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import-x";
+import markdown from "@eslint/markdown";
 
 export default [
   {
@@ -43,4 +44,5 @@ export default [
       "import-x/newline-after-import": ["error", { "count": 1 }],
     },
   },
+  ...markdown.configs.recommended,
 ];

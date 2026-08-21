@@ -6,8 +6,6 @@
 ![Github](https://img.shields.io/github/followers/hondzik.svg?style=for-the-badge)
 [![GitHub Activity](https://img.shields.io/github/last-commit/hondzik/printer-toner-level-feature?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/commits/main)
 
-
-
 This is a Home Assistant Lovelace **Tile card feature** that renders a printer's toner/ink cartridge levels as small bar gauges underneath a Tile card, the same way built-in features like "Cover open/close" or "Light brightness" attach to a Tile card.
 
 ![Black & White](docs/images/black-and-white.png)
@@ -29,14 +27,14 @@ Because sources 1 and 3 don't depend on attributes at all, the feature works wit
 
 ### Attribute contract (source 2)
 
-| Attribute      | Required | Type   | Description                                             |
+| Attribute | Required | Type | Description |
 | -------------- | -------- | ------ | --------------------------------------------------------- |
-| `domain`       | yes      | string | Must be exactly `"printer"` — this is how the feature recognizes a compatible entity (see note below). |
-| `black_level`  | yes      | number | Black toner/ink level, 0-100.                              |
-| `cyan_level`   | no       | number | Cyan level, 0-100.                                          |
-| `magenta_level`| no       | number | Magenta level, 0-100.                                      |
-| `yellow_level` | no       | number | Yellow level, 0-100.                                        |
-| `ip`           | no       | string | Not used by the feature itself, but handy to show in the Tile card's own `state_content` (see example below). |
+| `domain` | yes | string | Must be exactly `"printer"` — this is how the feature recognizes a compatible entity (see note below). |
+| `black_level` | yes | number | Black toner/ink level, 0-100. |
+| `cyan_level` | no | number | Cyan level, 0-100. |
+| `magenta_level` | no | number | Magenta level, 0-100. |
+| `yellow_level` | no | number | Yellow level, 0-100. |
+| `ip` | no | string | Not used by the feature itself, but handy to show in the Tile card's own `state_content` (see example below). |
 
 > **Note on `domain: "printer"`:** this is a plain custom attribute you set yourself — it has nothing to do with the Home Assistant entity domain (the `sensor.` prefix in an entity ID). You could use this feature on a `sensor.*`, `binary_sensor.*` or any other entity type, as long as it carries this attribute. It exists purely so the feature can offer itself in the Lovelace feature picker only for entities that actually look like a supported printer, instead of showing up for every entity in your system.
 
@@ -126,14 +124,14 @@ grid_options:
 
 All options are settable either through YAML or the visual editor (pencil icon on the feature, see [below](#using-the-visual-editor)):
 
-| Option           | Type    | Default | Description                                                                 |
+| Option | Type | Default | Description |
 | ----------------- | ------- | ------- | ---------------------------------------------------------------------------- |
-| `cyan_entity`      | string  | —       | Manually pick the entity used as the cyan source, overriding the attribute/auto-discovered source. |
-| `magenta_entity`   | string  | —       | Same, for magenta.                                                          |
-| `yellow_entity`    | string  | —       | Same, for yellow.                                                           |
-| `black_entity`     | string  | —       | Same, for black.                                                            |
-| `show_percent`     | boolean | `true`  | Show the numeric percentage next to each bar.                                |
-| `black_as_white`   | boolean | `true`  | Render the black toner bar in white instead of black — useful for it to stay visible on a dark bar background rather than blending into it. |
+| `cyan_entity` | string | — | Manually pick the entity used as the cyan source, overriding the attribute/auto-discovered source. |
+| `magenta_entity` | string | — | Same, for magenta. |
+| `yellow_entity` | string | — | Same, for yellow. |
+| `black_entity` | string | — | Same, for black. |
+| `show_percent` | boolean | `true` | Show the numeric percentage next to each bar. |
+| `black_as_white` | boolean | `true` | Render the black toner bar in white instead of black — useful for it to stay visible on a dark bar background rather than blending into it. |
 
 ```yaml
 features:
