@@ -1,8 +1,5 @@
 node_modules
 .vscode
-.claude
-CLAUDE.md
-.mcp.json
 .DS_Store
 .idea
 *.log
