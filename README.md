@@ -1,4 +1,4 @@
-# Printer toner level feature for Home Assistant Tile card
+# Printer toner level feature for Home Assistant Tile card <!-- omit from toc -->
 
 [![GitHub Release](https://img.shields.io/github/release/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](https://github.com/hondzik/printer-toner-level-feature/releases)
 [![License](https://img.shields.io/github/license/hondzik/printer-toner-level-feature.svg?style=for-the-badge)](LICENSE)
@@ -8,8 +8,25 @@
 
 This is a Home Assistant Lovelace **Tile card feature** that renders a printer's toner/ink cartridge levels as small bar gauges underneath a Tile card, the same way built-in features like "Cover open/close" or "Light brightness" attach to a Tile card.
 
-![Black & White](docs/images/black-and-white.png)
 ![Color](docs/images/color.png)
+![Black & White](docs/images/black-and-white.png)
+
+## Table of contents <!-- omit from toc -->
+
+- [How it works](#how-it-works)
+  - [Attribute contract (source 2)](#attribute-contract-source-2)
+  - [If a source entity goes unavailable](#if-a-source-entity-goes-unavailable)
+- [Setup](#setup)
+  - [1. Install](#1-install)
+  - [2. Get toner levels into the feature](#2-get-toner-levels-into-the-feature)
+    - [Transforming a `state_content` value while still using auto-discovery](#transforming-a-state_content-value-while-still-using-auto-discovery)
+  - [3. Add a Tile card and the feature](#3-add-a-tile-card-and-the-feature)
+- [Configuration options](#configuration-options)
+- [Using the visual editor](#using-the-visual-editor)
+  - [Without a template sensor (auto-discovered sensors)](#without-a-template-sensor-auto-discovered-sensors)
+- [Troubleshooting](#troubleshooting)
+- [Translations](#translations)
+- [Contributors](#contributors)
 
 It automatically detects whether the printer is black-and-white or color (based on whether a cyan level is available from any source) and renders 1 bar (black only) or 4 bars (cyan, magenta, yellow, black) accordingly.
 
