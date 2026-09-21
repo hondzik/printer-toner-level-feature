@@ -1,0 +1,7 @@
+{
+  "eslint.options": {
+    "overrideConfigFile": "conf/eslint.config.js"
+  },
+  "prettier.configPath": "conf/.prettierrc.json",
+  "prettier.ignorePath": "conf/.prettierignore"
+}
