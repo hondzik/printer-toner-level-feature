@@ -11,6 +11,5 @@
     // long free-text description column can't satisfy "aligned" without absurd padding
     "MD060": { "style": "compact" }
   },
-  "globs": ["**/*.md"],
-  "ignores": ["node_modules", "dist", "CLAUDE.md", ".claude"]
+  "globs": ["README.md"]
 }
