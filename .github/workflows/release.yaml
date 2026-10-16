@@ -43,8 +43,6 @@ jobs:
               with:
                   draft: true
                   body_path: release_notes.md
-                  files: |
-                    dist/*.js
-                    dist/icons/*
+                  files: dist/*.js
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
