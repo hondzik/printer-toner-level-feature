@@ -8,6 +8,10 @@
       "label": "Mostrar negro como blanco",
       "description": "Si está habilitado, la barra de nivel del tóner negro se muestra en blanco."
     },
+    "tap_action": {
+      "label": "Acción al tocar",
+      "description": "Qué ocurre al pulsar una barra de tóner. Más información abre el sensor de esa barra."
+    },
     "sources": {
       "title": "Fuentes de tóner",
       "mode_attributes": "Los valores provienen de los atributos de la entidad de la tarjeta",

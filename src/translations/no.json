@@ -8,6 +8,10 @@
       "label": "Vis svart som hvit",
       "description": "Når aktivert, vises den svarte tonernivålinjen i hvit farge."
     },
+    "tap_action": {
+      "label": "Trykkhandling",
+      "description": "Hva som skjer når du trykker på en tonerlinje. Mer info åpner sensoren til den linjen."
+    },
     "sources": {
       "title": "Tonerkilder",
       "mode_attributes": "Verdiene hentes fra attributtene til kortets entitet",

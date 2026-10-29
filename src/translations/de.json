@@ -8,6 +8,10 @@
       "label": "Schwarz als Weiß anzeigen",
       "description": "Wenn aktiviert, wird die Füllstandsanzeige für schwarzen Toner in Weiß dargestellt."
     },
+    "tap_action": {
+      "label": "Tipp-Aktion",
+      "description": "Was beim Antippen eines Tonerbalkens passiert. Mehr Infos öffnet den Sensor dieses Balkens."
+    },
     "sources": {
       "title": "Tonerquellen",
       "mode_attributes": "Werte kommen aus den Attributen der Kachel-Entität",

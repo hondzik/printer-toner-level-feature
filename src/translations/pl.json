@@ -8,6 +8,10 @@
       "label": "Wyświetlaj czarny jako biały",
       "description": "Gdy włączone, pasek poziomu czarnego tonera jest wyświetlany w kolorze białym."
     },
+    "tap_action": {
+      "label": "Akcja po dotknięciu",
+      "description": "Co się dzieje po dotknięciu paska tonera. Więcej informacji otwiera czujnik tego paska."
+    },
     "sources": {
       "title": "Źródła tonera",
       "mode_attributes": "Wartości pochodzą z atrybutów encji kafelka",

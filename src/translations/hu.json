@@ -8,6 +8,10 @@
       "label": "Fekete megjelenítése fehérként",
       "description": "Ha engedélyezve van, a fekete festékszint sáv fehér színben jelenik meg."
     },
+    "tap_action": {
+      "label": "Koppintási művelet",
+      "description": "Mi történik, ha megérinti a festékszint-sávot. A További információ az adott sáv szenzorát nyitja meg."
+    },
     "sources": {
       "title": "Tonerforrások",
       "mode_attributes": "Az értékek a csempe entitás attribútumaiból származnak",

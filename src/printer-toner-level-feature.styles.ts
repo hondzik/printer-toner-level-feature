@@ -95,6 +95,25 @@ export const printerTonerLevelFeatureStyles = css`
     background-color: rgba(255, 255, 255, 0.7);
   }
 
+  /* clickable bars: pointer, hover highlight, keyboard focus, no text selection / callout on long-press */
+  .toner.interactive {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+
+  .toner.interactive:hover .background {
+    filter: brightness(1.2);
+  }
+
+  .toner.interactive:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
   .toner.stale .level {
     opacity: 0.55;
   }

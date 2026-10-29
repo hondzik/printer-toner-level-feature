@@ -8,6 +8,10 @@
       "label": "Display black as white",
       "description": "When enabled, displays the black toner level bar in white color."
     },
+    "tap_action": {
+      "label": "Tap action",
+      "description": "What happens when you tap a toner bar. More info opens the sensor of that bar."
+    },
     "sources": {
       "title": "Toner sources",
       "mode_attributes": "Values come from the tile entity's attributes",

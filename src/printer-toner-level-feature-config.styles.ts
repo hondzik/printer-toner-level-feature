@@ -95,5 +95,9 @@ export const printerTonerLevelFeatureConfigStyles = css`
   .options {
     border-top: 1px solid var(--divider-color);
     margin-top: 8px;
+    padding-top: 12px;
+  }
+  .field {
+    margin-bottom: 12px;
   }
 `;

@@ -8,6 +8,10 @@
       "label": "Mostra nero come bianco",
       "description": "Se abilitato, la barra del livello del toner nero viene mostrata in bianco."
     },
+    "tap_action": {
+      "label": "Azione al tocco",
+      "description": "Cosa succede quando si tocca una barra del toner. Più informazioni apre il sensore di quella barra."
+    },
     "sources": {
       "title": "Sorgenti del toner",
       "mode_attributes": "I valori provengono dagli attributi dell'entità della scheda",

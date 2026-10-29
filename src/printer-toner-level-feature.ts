@@ -5,7 +5,8 @@ import { printerTonerLevelFeatureStyles } from './printer-toner-level-feature.st
 import { getBoolConfigVal } from './utils/config-utils';
 import { infoBlock } from './utils/info-block';
 import { fetchLastKnownLevel } from './utils/last-known';
-import { autoDiscoverTonerEntities, hasAttributeContract, resolveTonerSources } from './utils/toner-sources';
+import { buildTapAction, fireTapAction, isTapEnabled, TapHandler } from './utils/tap-action';
+import { autoDiscoverTonerEntities, hasAttributeContract, resolveTonerSources, TONER_COLORS } from './utils/toner-sources';
 import type { LastKnownLevel } from './utils/last-known';
 import type { TonerColor, TonerSource } from './utils/toner-sources';
 import type { HomeAssistant } from 'custom-card-helpers';
@@ -30,6 +31,7 @@ export class PrinterTonerLevelFeature extends LitElement {
 
   @state() private _lastKnown: Record<string, { value?: LastKnownLevel; fetchedAt: number }> = {};
   private _lastKnownFetching = new Set<string>();
+  private readonly _taps = Object.fromEntries(TONER_COLORS.map((color) => [color, new TapHandler(() => this._tapCallback(color))])) as Record<TonerColor, TapHandler>;
 
   static getConfigElement(): HTMLElement {
     return document.createElement('printer-toner-level-feature-config');
@@ -104,15 +106,37 @@ export class PrinterTonerLevelFeature extends LitElement {
       level = lastKnown?.level;
     }
     const showPercent = getBoolConfigVal(this.config, 'show_percent', true);
-    const title = lastKnown ? `${setupCustomlocalize(this.hass)('feature.last_known')}: ${new Date(lastKnown.start).toLocaleDateString(this.hass?.locale?.language)}` : undefined;
+    const customLocalize = setupCustomlocalize(this.hass);
+    const title = lastKnown ? `${customLocalize('feature.last_known')}: ${new Date(lastKnown.start).toLocaleDateString(this.hass?.locale?.language)}` : undefined;
+    const interactive = isTapEnabled(this.config?.tap_action);
+    const h = this._taps[source.color];
     return html`
-      <div class="${source.color} toner${lastKnown ? ' stale' : ''}" title=${title ?? nothing}>
+      <div
+        class="${source.color} toner${lastKnown ? ' stale' : ''}${interactive ? ' interactive' : ''}"
+        title=${title ?? nothing}
+        role=${interactive ? 'button' : nothing}
+        tabindex=${interactive ? '0' : nothing}
+        aria-label=${interactive ? `${customLocalize('editor.colors.' + source.color)} ${level ?? 0}%` : nothing}
+        @pointerdown=${h.onPointerDown}
+        @pointerup=${h.onPointerUp}
+        @pointerleave=${h.onPointerCancel}
+        @pointercancel=${h.onPointerCancel}
+        @click=${h.onClick}
+        @keydown=${h.onKeyDown}
+      >
         <div class="background">
           <div class="level" style="width: ${level ?? 0}%;"></div>
         </div>
         ${showPercent ? html`<div class="percent">${level ?? 0}</div>` : nothing}
       </div>
     `;
+  }
+
+  /** Tap = configured `tap_action` (default none); more-info opens the bar's own sensor, or the tile entity when the level comes from its attributes. */
+  private _tapCallback(color: TonerColor): (() => void) | undefined {
+    const tapAction = this.config?.tap_action;
+    if (!isTapEnabled(tapAction)) return undefined;
+    return () => fireTapAction(this, buildTapAction(this.tonerSources[color]?.entityId ?? this.context?.entity_id, tapAction));
   }
 
   private _queueLastKnown(entityId: string) {

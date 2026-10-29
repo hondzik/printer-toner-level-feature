@@ -8,6 +8,10 @@
       "label": "Exibir preto como branco",
       "description": "Se ativado, a barra de nível do toner preto é exibida em branco."
     },
+    "tap_action": {
+      "label": "Ação ao tocar",
+      "description": "O que acontece ao tocar numa barra de toner. Mais informações abre o sensor dessa barra."
+    },
     "sources": {
       "title": "Fontes de toner",
       "mode_attributes": "Os valores vêm dos atributos da entidade do cartão",

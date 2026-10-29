@@ -8,6 +8,10 @@
       "label": "Afficher le noir en blanc",
       "description": "Si activé, la barre de niveau du toner noir est affichée en blanc."
     },
+    "tap_action": {
+      "label": "Action au toucher",
+      "description": "Ce qui se passe quand on touche une barre de toner. Plus d'infos ouvre le capteur de cette barre."
+    },
     "sources": {
       "title": "Sources de toner",
       "mode_attributes": "Les valeurs proviennent des attributs de l'entité de la carte",

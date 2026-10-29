@@ -8,6 +8,10 @@
       "label": "Zwart als wit weergeven",
       "description": "Indien ingeschakeld, wordt de zwarte tonerniveaubalk in witte kleur weergegeven."
     },
+    "tap_action": {
+      "label": "Tikactie",
+      "description": "Wat er gebeurt als je op een tonerbalk tikt. Meer info opent de sensor van die balk."
+    },
     "sources": {
       "title": "Tonerbronnen",
       "mode_attributes": "Waarden komen uit de attributen van de tegel-entiteit",

@@ -149,6 +149,7 @@ All options are settable either through YAML or the visual editor (pencil icon o
 | `black_entity` | string | — | Same, for black. |
 | `show_percent` | boolean | `true` | Show the numeric percentage next to each bar. |
 | `black_as_white` | boolean | `true` | Render the black toner bar in white instead of black — useful for it to stay visible on a dark bar background rather than blending into it. |
+| `tap_action` | action | `none` | What happens when you tap a toner bar, see [Tap action](#tap-action). |
 
 ```yaml
 features:
@@ -156,7 +157,13 @@ features:
     cyan_entity: sensor.printer_cyan_cartridge
     show_percent: false
     black_as_white: false
+    tap_action:
+      action: more-info
 ```
+
+### Tap action
+
+Every toner bar is clickable once `tap_action` is set; by default (`none`) nothing happens and the bars aren't shown as clickable. The same action applies to all bars. Any Home Assistant action works (`more-info`, `navigate`, `url`, `perform-action`, …), including `confirmation`. `more-info` opens the sensor of the tapped bar — or the Tile card's entity when that bar's level comes from the entity's attributes.
 
 ## Using the visual editor
 
@@ -164,7 +171,7 @@ Instead of editing YAML, you can use the "Edit feature" (pencil) icon next to th
 
 ![Edit feature icon](docs/images/edit-feature-icon.png)
 
-Clicking it opens the Tile card configuration dialog. For each color it shows which entity is currently in use (a chip marks it **auto** or **manual**) and lets you pick a different entity via the selector, or reset back to the attribute/auto-discovered source with the reset button. Below that are the `show_percent` and `black_as_white` toggles described above:
+Clicking it opens the Tile card configuration dialog. For each color it shows which entity is currently in use (a chip marks it **auto** or **manual**) and lets you pick a different entity via the selector, or reset back to the attribute/auto-discovered source with the reset button. Below that are the `tap_action` selector and the `show_percent` and `black_as_white` toggles described above:
 
 ![Edit feature dialog](docs/images/edit-feature-dialog.png)
 

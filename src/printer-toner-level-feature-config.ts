@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import setupCustomlocalize from './localize';
 import { printerTonerLevelFeatureConfigStyles } from './printer-toner-level-feature-config.styles';
 import { getBoolConfigVal } from './utils/config-utils';
+import { DEFAULT_TAP_ACTION } from './utils/tap-action';
 import { autoDiscoverTonerEntities, hasAttributeContract, TONER_COLORS } from './utils/toner-sources';
 import type { TonerColor } from './utils/toner-sources';
 import type { HomeAssistant } from 'custom-card-helpers';
@@ -71,6 +72,17 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
       </div>
       ${TONER_COLORS.map((color) => this.renderSourceRow(color, customLocalize))}
       <div class="options">
+        <div class="field">
+          <ha-selector
+            .hass=${this.hass}
+            .selector=${{ ui_action: { default_action: DEFAULT_TAP_ACTION.action } }}
+            .value=${this.config.tap_action}
+            .label=${customLocalize('editor.tap_action.label')}
+            .helper=${customLocalize('editor.tap_action.description')}
+            .required=${false}
+            @value-changed=${this._onTapActionChange}
+          ></ha-selector>
+        </div>
         <ha-settings-row>
           <span slot="heading" data-for="show_percent">${customLocalize('editor.show_percent.label')}</span>
           <span slot="description" data-for="show_percent">${customLocalize('editor.show_percent.description')}</span>
@@ -142,6 +154,18 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
   private _onSourceReset(color: TonerColor) {
     const newConfig = { ...this.config };
     delete newConfig[`${color}_entity`];
+    this._updateConfig(newConfig);
+  }
+
+  private _onTapActionChange(ev: CustomEvent) {
+    ev.stopPropagation();
+    const value = ev.detail?.value as TonerActionConfig | undefined;
+    const newConfig = { ...this.config };
+    if (!value || value.action === DEFAULT_TAP_ACTION.action) {
+      delete newConfig.tap_action;
+    } else {
+      newConfig.tap_action = value;
+    }
     this._updateConfig(newConfig);
   }
 

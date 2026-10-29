@@ -8,6 +8,10 @@
       "label": "Zobrazit černý jako bílý",
       "description": "Pokud je povoleno, ukazatel hladiny černého toneru se zobrazí bílou barvou."
     },
+    "tap_action": {
+      "label": "Akce při klepnutí",
+      "description": "Co se stane po kliknutí na pruh toneru. Více informací otevře senzor daného pruhu."
+    },
     "sources": {
       "title": "Zdroje toneru",
       "mode_attributes": "Hodnoty pocházejí z atributů entity dlaždice",

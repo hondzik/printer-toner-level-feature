@@ -8,6 +8,10 @@
       "label": "Zobraziť čierny ako biely",
       "description": "Ak je povolené, ukazovateľ hladiny čierneho tonera sa zobrazí bielou farbou."
     },
+    "tap_action": {
+      "label": "Akcia pri ťuknutí",
+      "description": "Čo sa stane po kliknutí na pruh tonera. Viac informácií otvorí senzor daného pruhu."
+    },
     "sources": {
       "title": "Zdroje tonera",
       "mode_attributes": "Hodnoty pochádzajú z atribútov entity dlaždice",

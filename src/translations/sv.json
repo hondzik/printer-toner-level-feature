@@ -8,6 +8,10 @@
       "label": "Visa svart som vitt",
       "description": "När aktiverat visas den svarta tonernivåindikatorn i vit färg."
     },
+    "tap_action": {
+      "label": "Tryckåtgärd",
+      "description": "Vad som händer när du trycker på ett tonerfält. Mer info öppnar sensorn för det fältet."
+    },
     "sources": {
       "title": "Tonerkällor",
       "mode_attributes": "Värdena kommer från kortentitetens attribut",
