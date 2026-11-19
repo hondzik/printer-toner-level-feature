@@ -9,7 +9,7 @@ import { buildTapAction, fireTapAction, isTapEnabled, TapHandler } from './utils
 import { autoDiscoverTonerEntities, hasAttributeContract, resolveTonerSources, TONER_COLORS } from './utils/toner-sources';
 import type { LastKnownLevel } from './utils/last-known';
 import type { TonerColor, TonerSource } from './utils/toner-sources';
-import type { HomeAssistant } from 'custom-card-helpers';
+import type { HomeAssistant, LovelaceCardFeature, LovelaceCardFeatureConstructor, LovelaceCardFeatureContext, LovelaceCardFeatureEditor } from 'custom-card-helpers';
 import type { HassEntity } from 'home-assistant-js-websocket';
 import type { TemplateResult, CSSResultGroup } from 'lit';
 import './printer-toner-level-feature-config';
@@ -24,7 +24,7 @@ const supportsPrinterTonerLevelFeature = (hass: HomeAssistant, context: Lovelace
 };
 
 @customElement('printer-toner-level-feature')
-export class PrinterTonerLevelFeature extends LitElement {
+export class PrinterTonerLevelFeature extends LitElement implements LovelaceCardFeature {
   @property({ attribute: false }) hass?: HomeAssistant;
   @property({ attribute: false }) config?: PrinterTonerLevelFeatureConfig;
   @property({ attribute: false }) context?: LovelaceCardFeatureContext;
@@ -33,8 +33,8 @@ export class PrinterTonerLevelFeature extends LitElement {
   private _lastKnownFetching = new Set<string>();
   private readonly _taps = Object.fromEntries(TONER_COLORS.map((color) => [color, new TapHandler(() => this._tapCallback(color))])) as Record<TonerColor, TapHandler>;
 
-  static getConfigElement(): HTMLElement {
-    return document.createElement('printer-toner-level-feature-config');
+  static getConfigElement(): LovelaceCardFeatureEditor {
+    return document.createElement('printer-toner-level-feature-config') as LovelaceCardFeatureEditor;
   }
 
   static getStubConfig(): PrinterTonerLevelFeatureConfig {
@@ -160,6 +160,8 @@ export class PrinterTonerLevelFeature extends LitElement {
     return printerTonerLevelFeatureStyles;
   }
 }
+
+PrinterTonerLevelFeature satisfies LovelaceCardFeatureConstructor;
 
 window.customCardFeatures ||= [];
 window.customCardFeatures.push({

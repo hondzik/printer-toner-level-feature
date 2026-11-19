@@ -37,7 +37,7 @@ export function hasAttributeContract(stateObj: HassEntity | undefined): boolean 
  * decides then.
  */
 export function autoDiscoverTonerEntities(hass: HomeAssistant, entityId?: string): Partial<Record<TonerColor, string>> {
-  const registry = (hass as HassWithRegistry).entities;
+  const registry = hass.entities;
   const deviceId = entityId ? registry?.[entityId]?.device_id : undefined;
   if (!registry || !deviceId) return {};
 

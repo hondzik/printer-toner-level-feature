@@ -6,7 +6,7 @@ import { getBoolConfigVal } from './utils/config-utils';
 import { DEFAULT_TAP_ACTION } from './utils/tap-action';
 import { autoDiscoverTonerEntities, hasAttributeContract, TONER_COLORS } from './utils/toner-sources';
 import type { TonerColor } from './utils/toner-sources';
-import type { HomeAssistant } from 'custom-card-helpers';
+import type { HomeAssistant, LovelaceCardFeatureContext, LovelaceCardFeatureEditor } from 'custom-card-helpers';
 import type { CSSResultGroup, TemplateResult } from 'lit';
 
 const SWATCH_COLORS: Record<TonerColor, string> = {
@@ -17,7 +17,7 @@ const SWATCH_COLORS: Record<TonerColor, string> = {
 };
 
 @customElement('printer-toner-level-feature-config')
-export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
+export class PrinterTonerLevelFeatureConfigEditor extends LitElement implements LovelaceCardFeatureEditor {
   @property({ attribute: false }) hass?: HomeAssistant;
   @property({ attribute: false }) context?: LovelaceCardFeatureContext;
   @property({ type: Object }) config: Partial<PrinterTonerLevelFeatureConfig> = {};
@@ -41,10 +41,9 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement {
   }
 
   private get _deviceName(): string | undefined {
-    const hass = this.hass as HassWithRegistry | undefined;
-    const deviceId = this.context?.entity_id ? hass?.entities?.[this.context.entity_id]?.device_id : undefined;
-    const device = deviceId ? hass?.devices?.[deviceId] : undefined;
-    return device?.name_by_user ?? device?.name;
+    const deviceId = this.context?.entity_id ? this.hass?.entities?.[this.context.entity_id]?.device_id : undefined;
+    const device = deviceId ? this.hass?.devices?.[deviceId] : undefined;
+    return device?.name_by_user ?? device?.name ?? undefined;
   }
 
   render(): TemplateResult {
