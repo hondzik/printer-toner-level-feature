@@ -1,3 +1,4 @@
+import { fireEvent } from 'custom-card-helpers';
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import setupCustomlocalize from './localize';
@@ -180,12 +181,6 @@ export class PrinterTonerLevelFeatureConfigEditor extends LitElement implements 
 
   private _updateConfig(newConfig: Partial<PrinterTonerLevelFeatureConfig>) {
     this.config = newConfig;
-    this.dispatchEvent(
-      new CustomEvent('config-changed', {
-        detail: { config: this.config },
-        bubbles: true,
-        composed: true,
-      }),
-    );
+    fireEvent(this, 'config-changed', { config: this.config });
   }
 }

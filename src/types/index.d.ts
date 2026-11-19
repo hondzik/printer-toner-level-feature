@@ -1,4 +1,4 @@
-import type { CustomCardFeatureEntry } from 'custom-card-helpers';
+import type { CustomCardFeatureEntry, LovelaceCardFeatureConfig } from 'custom-card-helpers';
 
 export {};
 
@@ -14,14 +14,10 @@ declare global {
     description: string;
   }
 
-  type FeatureConfig = {
-    type: string;
-  };
-
   /** HA frontend action config, as produced by the `ui_action` selector (`more-info`, `navigate`, `none`, ...). */
   type TonerActionConfig = { action: string; [key: string]: unknown };
 
-  type PrinterTonerLevelFeatureConfig = FeatureConfig & {
+  type PrinterTonerLevelFeatureConfig = LovelaceCardFeatureConfig & {
     show_percent?: boolean;
     black_as_white?: boolean;
     /** Action on tap, applied to every bar; defaults to `none`. */

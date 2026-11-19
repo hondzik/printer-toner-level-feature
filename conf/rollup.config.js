@@ -24,6 +24,8 @@ export default {
       tsconfig: './tsconfig.json',
       declaration: false,
       sourceMap: false,
+      // a type error fails the build instead of just printing a warning
+      noEmitOnError: true,
       compilerOptions: {
         skipLibCheck: true,
       },

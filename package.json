@@ -26,8 +26,9 @@
   "scripts": {
     "watch": "rollup -c conf/rollup.config.js -w",
     "build": "rollup -c conf/rollup.config.js",
-    "lint & format": "eslint --config conf/eslint.config.js src README.md --ext .ts,.js --fix && prettier --config conf/.prettierrc.json --ignore-path conf/.prettierignore --write src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2 --config conf/.markdownlint-cli2.jsonc --fix",
-    "lint:check": "tsc --noEmit -p tsconfig.json && eslint --config conf/eslint.config.js src README.md --ext .ts,.js && prettier --config conf/.prettierrc.json --ignore-path conf/.prettierignore --check src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2 --config conf/.markdownlint-cli2.jsonc",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint & format": "npm run typecheck && eslint --config conf/eslint.config.js src README.md --ext .ts,.js --fix && prettier --config conf/.prettierrc.json --ignore-path conf/.prettierignore --write src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2 --config conf/.markdownlint-cli2.jsonc --fix",
+    "lint:check": "npm run typecheck && eslint --config conf/eslint.config.js src README.md --ext .ts,.js && prettier --config conf/.prettierrc.json --ignore-path conf/.prettierignore --check src/**/*.{ts,js,json,css,scss,html} && markdownlint-cli2 --config conf/.markdownlint-cli2.jsonc",
     "test": "vitest run",
     "version MAJOR": "npm version major",
     "version MINOR": "npm version minor",
